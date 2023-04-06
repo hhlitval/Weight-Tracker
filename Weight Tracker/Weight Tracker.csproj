@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.11.0" />
   </ItemGroup>
 

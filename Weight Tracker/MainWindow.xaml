@@ -4,21 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:uc="clr-namespace:Weight_Tracker.InfoCard"
+        xmlns:linechart="clr-namespace:Weight_Tracker.UserControls" 
+               
         mc:Ignorable="d"
-        Height="450" Width="600" WindowStartupLocation="CenterScreen" 
+        Height="600" Width="1000" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize">
     <Border CornerRadius="15" Background="#162233" MouseDown="Border_MouseDown">
     <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="70"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>                
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="360"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>                
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                
             </Grid.RowDefinitions>
     
         
@@ -29,7 +36,8 @@
                 <Rectangle Width="6" Height="16" Fill="Turquoise" Margin="0 13 2 0"/>
                 <Rectangle Width="6" Height="15" Fill="#7afaae" Margin="0 0 2 8"/>
             </StackPanel>
-            <Border Grid.Row="1" Grid.RowSpan="2" Background="#1e2f47" CornerRadius="20" Margin="12">
+            <Border Grid.Row="1" Grid.RowSpan="4" Background="#1e2f47" CornerRadius="20" Margin="12" 
+                    Height="200" VerticalAlignment="Center">
          
                 <!-- Menu Buttons -->
                 <StackPanel>
@@ -45,10 +53,51 @@
                         <Icon:PackIconMaterial Kind="Table" Style="{StaticResource menuButtonIcon}"/>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton}" Click="ExitButton_Click" Margin="0 165 0 10" ToolTip="Close">
+                    <Button Style="{StaticResource menuButton}" Click="ExitButton_Click" Margin="0 0 0 0" ToolTip="Close">
                         <Icon:PackIconMaterial Kind="Power" Style="{StaticResource menuButtonIcon}"/>
                     </Button>
                 </StackPanel>
+            </Border>
+
+            <!-- Daily Chart -->
+            <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+                    Grid.RowSpan="2" Margin="10 10 20 10">
+                <Grid>
+                    <TextBlock Text="Daily Statistics" Style="{StaticResource titleText}"/>
+                    <linechart:LineChart/>
+                </Grid>
+            </Border>
+            
+            <!-- Info Cards -->
+            <Grid Grid.Column="1" Grid.Row="3">
+                <uc:InfoCard Margin="10" Number="78.6 kg" Title="Today" Grid.Column="1" Grid.Row="1"
+                         IsTechnical="False" IsActive="True"/>
+            </Grid>
+            
+            <Grid Grid.Column="1" Grid.Row="4">
+            <uc:InfoCard Margin="10 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+                         IsTechnical="True" IsActive="True"/>
+            </Grid>
+            
+            <!-- BMI Index -->
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="10 10 10 20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="BMI Index" Style="{StaticResource titleText}"/>
+                    <linechart:Gauge Grid.Row="1"/>
+                </Grid>
+            </Border>
+
+
+            <!-- Month Average -->   
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Margin="10 10 20 20">
+                <Grid>
+                    <TextBlock Text="Average Monthly Weight" Style="{StaticResource titleText}"/>
+                    <linechart:BarChart/>
+                </Grid>
             </Border>
         </Grid>
     </Border>

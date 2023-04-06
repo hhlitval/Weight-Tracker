@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="Weight_Tracker.UserControls.Gauge"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:local="clr-namespace:Weight_Tracker.UserControls">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <lvc:AngularGauge Grid.Row="1" Value="{Binding Value}" FromValue="50" ToValue="100" LabelsStep="10" 
+                          TicksStep="5" Wedge="300" TicksForeground="#7368ff" Foreground="Transparent" FontWeight="SemiBold"
+                          FontSize="10" SectionsInnerRadius="0.75" NeedleFill="#fcfafa" TicksStrokeThickness="1">
+            <!-- fcfafa -->
+            <lvc:AngularGauge.Sections>
+                <lvc:AngularSection FromValue="50" ToValue="72.3" Fill="#FF85F196" />
+                <lvc:AngularSection FromValue="72.3" ToValue="87" Fill="#FFFFC972"/>
+                <lvc:AngularSection FromValue="87" ToValue="100" Fill="#FFFB6A6A"/>
+            </lvc:AngularGauge.Sections>
+        </lvc:AngularGauge>
+    </Grid>
+</UserControl>
