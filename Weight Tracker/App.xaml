@@ -48,33 +48,6 @@
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Margin" Value="0"/>
         </Style>
-
-        <Style x:Key="topMenuButton" TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#9eabe2"/>
-            <Setter Property="Margin" Value="5 0 0 0"/>
-            <Setter Property="Height" Value="30"/>
-            <Setter Property="Width" Value="80"/>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-            <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>                        
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Tag" Value="Visible" />
-                    <Setter Property="Background" Value="#2889fc"/>
-                    <Setter Property="Foreground" Value="#ffffff"/>                    
-                </Trigger>
-            </Style.Triggers>
-        </Style>
         
     </Application.Resources>
 </Application>
