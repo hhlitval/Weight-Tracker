@@ -30,7 +30,8 @@ namespace Weight_Tracker.UserControls
                     {
                         new ColumnSeries
                         {
-                           Values = new ChartValues<double> { 79.2, 78.8, 79.0, 78.7, 76.6, 74.9, 74.1, 73.3, 73.5, 73.5, 74.0, 73.1, 74.4 }
+                            Title = "Weight =",
+                            Values = new ChartValues<double> { 79.2, 78.8, 79.0, 78.7, 76.6, 74.9, 74.1, 73.3, 73.5, 73.5, 74.0, 73.1, 74.4 }
                         }
                     };            
 

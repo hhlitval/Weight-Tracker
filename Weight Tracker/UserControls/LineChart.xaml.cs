@@ -30,7 +30,7 @@ namespace Weight_Tracker.UserControls
             {
                 new LineSeries
                 {
-                    Title = "Balance",
+                    Title = "Weight =",
                     Values = new ChartValues<double> {73.6, 73.2, 73.1, 73.1, 73.7, 74.1, 73.9, 73.5, 
                         73.5, 74.5, 73.9, 73.5, 73.5, 74.5, 74.5, 74.7, 74.8, 74.8, 74.9, 74.9, 75.0, 
                         75.1, 75.3, 75.1, 74.9, 75.2, 75.2, 74.9, 74.8, 75.4, 75.4}
@@ -41,7 +41,7 @@ namespace Weight_Tracker.UserControls
             "8 Mar","9 Mar","10 Mar","11 Mar","12 Mar","13 Mar","14 Mar","15 Mar","16 Mar",
             "17 Mar","18 Mar","19 Mar","20 Mar","21 Mar","22 Mar","23 Mar","24 Mar","25 Mar",
             "26 Mar","27 Mar","28 Mar","29 Mar","30 Mar","31 Mar"};
-            YFormatter = value => value.ToString("N0");
+            YFormatter = value => value.ToString("N1");
             DataContext = this;
         }
 

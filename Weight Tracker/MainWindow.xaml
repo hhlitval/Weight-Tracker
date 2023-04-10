@@ -8,7 +8,7 @@
         xmlns:linechart="clr-namespace:Weight_Tracker.UserControls" 
                
         mc:Ignorable="d"
-        Height="600" Width="1000" WindowStartupLocation="CenterScreen" 
+        Height="700" Width="1000" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize">
     <Border CornerRadius="15" Background="#162233" MouseDown="Border_MouseDown">
@@ -23,20 +23,22 @@
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="100"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
                 
             </Grid.RowDefinitions>
     
         
-        <!-- Logo -->
+        <!-- Logo & Menu Bar -->
+        
             <StackPanel Orientation="Horizontal" Margin="15 20 15 10" HorizontalAlignment="Center" ToolTip="Weight Tracker">
                 <Rectangle Width="6" Height="15" Fill="#f7fc62" Margin="0 5 2 0"/>
                 <Rectangle Width="6" Height="25" Fill="#f55858" Margin="0 0 2 1"/>
                 <Rectangle Width="6" Height="16" Fill="Turquoise" Margin="0 13 2 0"/>
                 <Rectangle Width="6" Height="15" Fill="#7afaae" Margin="0 0 2 8"/>
             </StackPanel>
-            <Border Grid.Row="1" Grid.RowSpan="4" Background="#1e2f47" CornerRadius="20" Margin="12" 
+            <Border Grid.Row="0" Grid.RowSpan="6" Background="#1e2f47" CornerRadius="20" Margin="12" 
                     Height="200" VerticalAlignment="Center">
          
                 <!-- Menu Buttons -->
@@ -75,25 +77,30 @@
             </Grid>
             
             <Grid Grid.Column="1" Grid.Row="4">
-            <uc:InfoCard Margin="10 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+            <uc:InfoCard Margin="10 0 10 10" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
                          IsTechnical="True" IsActive="True"/>
             </Grid>
-            
+
+            <Grid Grid.Column="1" Grid.Row="5">
+                <uc:InfoCard Margin="10 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+                         IsTechnical="True" IsActive="True"/>
+            </Grid>
+
             <!-- BMI Index -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="2" Grid.RowSpan="2" Margin="10 10 10 20">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" Margin="10 10 10 20">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35" />
+                        <RowDefinition Height="50"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="BMI Index" Style="{StaticResource titleText}"/>
+                    <TextBlock Grid.Row="0" Text="Current BMI" Style="{StaticResource titleText}"/>
                     <linechart:Gauge Grid.Row="1"/>
                 </Grid>
             </Border>
 
 
             <!-- Month Average -->   
-            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Margin="10 10 20 20">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Margin="10 10 20 20">
                 <Grid>
                     <TextBlock Text="Average Monthly Weight" Style="{StaticResource titleText}"/>
                     <linechart:BarChart/>

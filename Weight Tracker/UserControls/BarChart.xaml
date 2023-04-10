@@ -7,7 +7,15 @@
              xmlns:local="clr-namespace:Weight_Tracker.UserControls">
     <UserControl.Resources>
         <Style TargetType="lvc:ColumnSeries">
-            <Setter Property="Fill" Value="#7166f9"/>  
+            <Setter Property="Fill">
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="#8067f5" Offset="0.1"/>
+                    <GradientStop Color="#2889fc" Offset="0.5"/>
+                    <GradientStop Color="#fc6f8b" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+            </Setter>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -19,7 +27,7 @@
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>
-                        <lvc:Separator StrokeThickness="0"/>
+                        <lvc:Separator StrokeThickness="0" Step="2"/>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>

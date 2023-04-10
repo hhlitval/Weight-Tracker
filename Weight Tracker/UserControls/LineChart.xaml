@@ -7,31 +7,32 @@
              xmlns:local="clr-namespace:Weight_Tracker.UserControls"
              mc:Ignorable="d">
     <UserControl.Resources>
-        <Style TargetType="lvc:LineSeries">
-            <Setter Property="Fill" Value="Transparent"/>
-            <Setter Property="StrokeThickness" Value="3"/>
+        <Style TargetType="lvc:LineSeries">            
+            <Setter Property="StrokeThickness" Value="2"/>
             <Setter Property="PointGeometrySize" Value="0"/>
-            <Setter Property="Stroke">
+            <Setter Property="Stroke" Value="#2889fc"/>            
+
+            <Setter Property="Fill">
                 <Setter.Value>
                     <LinearGradientBrush>
-                        <GradientStop Color="#8067f5" Offset="0.06"/>
-                        <GradientStop Color="#2889fc" Offset="0.5"/>
-                        <GradientStop Color="#fc6f8b" Offset="0.93"/>
+                        <GradientStop Color="#2e3966" Offset="0.4"/>
+                        <GradientStop Color="#21304a" Offset="1.2"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style>
     </UserControl.Resources>
+    
     <Grid>
         <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None" Series="{Binding SeriesCollection}">
             <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip Background="red" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
+                <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
             </lvc:CartesianChart.DataTooltip>
 
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Foreground="#675f8c" ShowLabels="True" Labels="{Binding Labels}">
                     <lvc:Axis.Separator>
-                        <lvc:Separator StrokeThickness="0" />
+                        <lvc:Separator StrokeThickness="0" Stroke="#2c3a54"/>
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisX>
@@ -39,7 +40,7 @@
             <lvc:CartesianChart.AxisY>
                 <lvc:Axis Foreground="#675f8c" ShowLabels="True" MinValue="72" MaxValue="76" LabelFormatter="{Binding YFormatter}">
                     <lvc:Axis.Separator>
-                        <lvc:Separator StrokeThickness="0" />
+                        <lvc:Separator StrokeThickness="1" Stroke="#2c3a54" />
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>
