@@ -70,7 +70,7 @@
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Tag" Value="Visible" />
-                    <Setter Property="Background" Value="#2889fc"/>
+                    <Setter Property="Background" Value="#3075c7"/>
                     <Setter Property="Foreground" Value="#ffffff"/>                    
                 </Trigger>
             </Style.Triggers>

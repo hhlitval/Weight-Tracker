@@ -14,7 +14,7 @@
     <Border CornerRadius="15" Background="#162233" MouseDown="Border_MouseDown">
     <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="80"/>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="400"/>
@@ -36,7 +36,7 @@
                 <Rectangle Width="6" Height="16" Fill="Turquoise" Margin="0 13 2 0"/>
                 <Rectangle Width="6" Height="15" Fill="#7afaae" Margin="0 0 2 8"/>
             </StackPanel>
-            <Border Grid.Row="0" Grid.RowSpan="6" Background="#1e2f47" CornerRadius="20" Margin="12" 
+            <Border Grid.Row="0" Grid.RowSpan="6" Background="#1e2f47" CornerRadius="18" Margin="20" 
                     Height="200" VerticalAlignment="Center">
          
                 <!-- Left Menu Buttons -->
@@ -63,7 +63,7 @@
             <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" 
                         VerticalAlignment="Bottom" Margin="0 0 20 10">
                 <Button Content="This Week" Style="{StaticResource topMenuButton}"/>
-                <Button Content="This Month" Style="{StaticResource topMenuButton}" Background="#2889fc" Foreground="#fcfafa"/>
+                <Button Content="This Month" Style="{StaticResource topMenuButton}" Background="#3075c7" Foreground="#fcfafa"/>
                 <Button Content="This Year" Style="{StaticResource topMenuButton}"/>
                 <Button Content="Custom" Style="{StaticResource topMenuButton}"/>
 
@@ -71,7 +71,7 @@
 
             <!-- Daily Chart -->
             <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
-                    Grid.RowSpan="2" Margin="10 10 10 10">
+                    Grid.RowSpan="2" Margin="0 10 20 10">
                 <Grid>
                     <TextBlock Text="Daily Statistics" Style="{StaticResource titleText}"/>
                     <linechart:LineChart/>
@@ -80,17 +80,17 @@
             
             <!-- Info Cards -->
             <Grid Grid.Column="1" Grid.Row="3">
-                <uc:InfoCard Margin="10" Number="78.6 kg" Title="Today" Grid.Column="1" Grid.Row="1"
+                <uc:InfoCard Margin="0 10 10 10" Number="78.6 kg" Title="Today" Grid.Column="1" Grid.Row="1"
                          IsTechnical="False" IsActive="True"/>
             </Grid>
             
             <Grid Grid.Column="1" Grid.Row="4">
-            <uc:InfoCard Margin="10 0 10 10" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+            <uc:InfoCard Margin="0 5 10 15" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
                          IsTechnical="True" IsActive="True"/>
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="5">
-                <uc:InfoCard Margin="10 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+                <uc:InfoCard Margin="0 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
                          IsTechnical="True" IsActive="True"/>
             </Grid>
 
@@ -123,7 +123,7 @@
 
 
             <!-- Month Average -->   
-            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Margin="10 10 10 20">
+            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Margin="10 10 20 20">
                 <Grid>
                     <TextBlock Text="Average Monthly Weight" Style="{StaticResource titleText}"/>
                     <linechart:BarChart/>

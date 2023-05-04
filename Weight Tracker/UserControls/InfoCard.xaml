@@ -15,11 +15,6 @@
                     <Trigger Property="IsMouseOver" Value="True">
                         <Setter Property="BorderBrush" Value="#7166f9"/>
                     </Trigger>
-
-                    <DataTrigger Binding="{Binding ElementName=infoCard, Path=IsActive}" Value="True">
-                        <Setter Property="BorderBrush" Value="#7166f9"/>
-                    </DataTrigger>
-                    
                 </Style.Triggers>
             </Style>
         </Border.Style>
