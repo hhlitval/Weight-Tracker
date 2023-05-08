@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:local="clr-namespace:Weight_Tracker.UserControls"
              mc:Ignorable="d">
     <UserControl.Resources>
         <Style TargetType="lvc:LineSeries">            
@@ -24,13 +23,15 @@
     </UserControl.Resources>
     
     <Grid>
-        <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None" Series="{Binding SeriesCollection}">
+        <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None">
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
             </lvc:CartesianChart.DataTooltip>
-
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Title="Weight = " Values="{Binding WeightValues}"/>
+            </lvc:CartesianChart.Series>
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Foreground="#675f8c" ShowLabels="True" Labels="{Binding Labels}">
+                <lvc:Axis Foreground="#675f8c" ShowLabels="True" Labels="{Binding Days}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0" Stroke="#2c3a54"/>
                     </lvc:Axis.Separator>

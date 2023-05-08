@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Weight_Tracker.ViewModels;
 
 namespace Weight_Tracker
 {
@@ -23,6 +24,7 @@ namespace Weight_Tracker
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new DailyStatisticsViewModel(new DateTime(2022, 10, 17).AddDays(-30), new DateTime(2022,10,17));
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
