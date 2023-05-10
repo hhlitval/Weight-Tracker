@@ -8,13 +8,14 @@ using Weight_Tracker.DbConnection;
 using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
-{
-    
-    public class DailyStatisticsViewModel
+{    
+    public class DailyStatisticsViewModel : BaseViewModel
     {
-        private readonly DbWeightStatistics _weightStatisticsService = new DbWeightStatistics();
+        private readonly DatabaseDailyStatistics _weightStatisticsService = new DatabaseDailyStatistics();
+        
         public ChartValues<float>? WeightValues { get; set; }
         public string[]? Days { get; set; }
+
         public Func<float, string>? LineFormatter { get; private set; }
 
         public DailyStatisticsViewModel(DateTime startDate, DateTime endDate)

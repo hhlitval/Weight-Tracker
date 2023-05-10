@@ -9,7 +9,7 @@ using Weight_Tracker.Models;
 
 namespace Weight_Tracker.DbConnection
 {
-    public class DbWeightStatistics : DbConnection
+    public class DatabaseDailyStatistics : DbConnection
     {
         public ObservableCollection<DailyWeight> LoadData(DateTime startDate, DateTime endDate)
         {

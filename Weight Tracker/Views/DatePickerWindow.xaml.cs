@@ -1,6 +1,4 @@
-﻿using LiveCharts.Wpf;
-using LiveCharts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Weight_Tracker.UserControls
+namespace Weight_Tracker
 {
     /// <summary>
-    /// Interaction logic for BarChart.xaml
+    /// Interaction logic for DatePickerWindow.xaml
     /// </summary>
-    public partial class BarChart : UserControl
+    public partial class DatePickerWindow : Window
     {
-        public BarChart()
+        public DatePickerWindow()
         {
             InitializeComponent();
         }
-
     }
-}  
+}

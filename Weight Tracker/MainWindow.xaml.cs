@@ -21,10 +21,17 @@ namespace Weight_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DateTime startDate = new DateTime(2022, 10, 17).AddDays(-30);
+        private DateTime endDate = new DateTime(2022, 10, 17);
+        
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new DailyStatisticsViewModel(new DateTime(2022, 10, 17).AddDays(-30), new DateTime(2022,10,17));
+
+            
+            DataContext = new DailyStatisticsViewModel(startDate, endDate);
+            DataContext = new MonthlyStatisticsViewModel();
+
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -37,7 +44,34 @@ namespace Weight_Tracker
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+           this.Close();
+        }
+
+        private void thisWeekButtonClick(object sender, RoutedEventArgs e)
+        {
+            endDate = new DateTime(2022, 10, 17);
+            startDate = endDate.AddDays(-4);
+            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(startDate, endDate);
+        }
+
+        private void thisMonthButtonClick(object sender, RoutedEventArgs e)
+        {            
+            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
+                new DateTime(2022, 10, 17).AddDays(-30), 
+                new DateTime(2022, 10, 17));
+        }
+
+        private void thisYearButtonClick(object sender, RoutedEventArgs e)
+        {
+            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
+                new DateTime(2022, 10, 17).AddDays(-30),
+                new DateTime(2022, 10, 17));
+        }
+
+        private void customButtonClick(object sender, RoutedEventArgs e)
+        {
+            DatePickerWindow datePickerWindow = new DatePickerWindow();
+            datePickerWindow.Show();
         }
     }
 }

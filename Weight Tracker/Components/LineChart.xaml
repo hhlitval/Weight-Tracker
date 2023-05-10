@@ -24,12 +24,15 @@
     
     <Grid>
         <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None">
+            
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
             </lvc:CartesianChart.DataTooltip>
+            
             <lvc:CartesianChart.Series>
                 <lvc:LineSeries Title="Weight = " Values="{Binding WeightValues}"/>
             </lvc:CartesianChart.Series>
+            
             <lvc:CartesianChart.AxisX>
                 <lvc:Axis Foreground="#675f8c" ShowLabels="True" Labels="{Binding Days}">
                     <lvc:Axis.Separator>

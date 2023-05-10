@@ -62,10 +62,11 @@
         <!-- Top Menu Buttons -->
             <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" 
                         VerticalAlignment="Bottom" Margin="0 0 20 10">
-                <Button Content="This Week" Style="{StaticResource topMenuButton}"/>
-                <Button Content="This Month" Style="{StaticResource topMenuButton}" Background="#3075c7" Foreground="#fcfafa"/>
-                <Button Content="This Year" Style="{StaticResource topMenuButton}"/>
-                <Button Content="Custom" Style="{StaticResource topMenuButton}"/>
+                <Button Content="This Week" Style="{StaticResource topMenuButton}" Click="thisWeekButtonClick"/>
+                <Button Content="This Month" Style="{StaticResource topMenuButton}" Click="thisMonthButtonClick" 
+                        Background="#3075c7" Foreground="#fcfafa"/>
+                <Button Content="This Year" Style="{StaticResource topMenuButton}" Click="thisYearButtonClick"/>
+                <Button Content="Custom" Style="{StaticResource topMenuButton}" Click="customButtonClick"/>
 
             </StackPanel>
 
@@ -74,7 +75,7 @@
                     Grid.RowSpan="2" Margin="0 10 20 10">
                 <Grid>
                     <TextBlock Text="Daily Statistics" Style="{StaticResource titleText}"/>
-                    <linechart:LineChart/>
+                    <linechart:LineChart x:Name="dailyStatisticsLineChart"/>
                 </Grid>
             </Border>
             

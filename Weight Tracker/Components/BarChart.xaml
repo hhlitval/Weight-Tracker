@@ -18,13 +18,17 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0" Series="{Binding SeriesCollection}">
+        <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0" >
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip Background="#24336a" Foreground="#d5e2ff"/>
             </lvc:CartesianChart.DataTooltip>
 
+            <lvc:CartesianChart.Series>
+                <lvc:ColumnSeries Title="Weight = " Values="{Binding MonthlyWeightValues}"/>
+            </lvc:CartesianChart.Series>
+
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding Labels}">
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding MonthYear}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0" Step="2"/>
                     </lvc:Axis.Separator>
