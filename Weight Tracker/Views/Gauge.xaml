@@ -10,10 +10,10 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <lvc:AngularGauge Grid.Row="1" Value="{Binding BMIValue}" FromValue="50" ToValue="100" LabelsStep="10" 
+
+        <lvc:AngularGauge Grid.Row="1" Value="{Binding BmiValue}" FromValue="50" ToValue="100" LabelsStep="10" 
                           TicksStep="5" Wedge="300" TicksForeground="#fcfafa" Foreground="Transparent" FontWeight="SemiBold"
-                          FontSize="10" SectionsInnerRadius="0.75" NeedleFill="#fcfafa" TicksStrokeThickness="1">            
+                          FontSize="10" SectionsInnerRadius="0.76" NeedleFill="#fcfafa" TicksStrokeThickness="1">            
             <lvc:AngularGauge.Sections>
                 <lvc:AngularSection FromValue="50" ToValue="72.3" Fill="#FF85F196" />
                 <lvc:AngularSection FromValue="72.3" ToValue="87" Fill="#FFFFC972"/>

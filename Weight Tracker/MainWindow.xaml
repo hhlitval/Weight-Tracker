@@ -6,18 +6,19 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:uc="clr-namespace:Weight_Tracker.InfoCard"
         xmlns:linechart="clr-namespace:Weight_Tracker.UserControls" 
-               
+        xmlns:bmicard="clr-namespace:Weight_Tracker.Views"
         mc:Ignorable="d"
         Height="700" Width="1000" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize">
+    
     <Border CornerRadius="15" Background="#162233" MouseDown="Border_MouseDown">
     <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="80"/>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="500"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
@@ -91,36 +92,12 @@
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="5">
-                <uc:InfoCard Margin="0 0 10 20" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
-                         IsTechnical="True" IsActive="True"/>
+                <uc:InfoCard Margin="0 0 10 20" Number="78.4 kg" Title="Month average" Grid.Column="2" Grid.Row="1" 
+                         />
             </Grid>
 
             <!-- BMI Index -->
-            <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" 
-                    Margin="10 10 10 20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                
-                <TextBlock Grid.ColumnSpan="3" Text="Current BMI" Style="{StaticResource titleText}"/>
-                    <linechart:Gauge Grid.ColumnSpan="3" Grid.Row="1" Margin="10 40 10 0"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Text="{Binding Value}"
-                               FontSize="12" Foreground="#a7faaf"/>
-                    <TextBlock Grid.Row="1" Text="Normal" FontSize="12" Foreground="#a7faaf"  Margin="40 50 0 0"/>
-                    <TextBlock Grid.Row="1" Text="weight" FontSize="12" Foreground="#a7faaf"  Margin="40 65 0 0"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Overweight" FontSize="12" 
-                               Foreground="#fad2a7" Margin="10 50 0 0"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Obese" FontSize="12" 
-                               Foreground="#f79481" Margin="15 120 0 0"/>
-                </Grid>
-            </Border>
+            <bmicard:BmiInfoCard  Grid.Row="3" Grid.Column="2" Grid.RowSpan="3"/>
 
 
             <!-- Month Average -->   

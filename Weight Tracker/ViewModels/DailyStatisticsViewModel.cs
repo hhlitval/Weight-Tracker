@@ -13,18 +13,18 @@ namespace Weight_Tracker.ViewModels
     {
         private readonly DatabaseDailyStatistics _weightStatisticsService = new DatabaseDailyStatistics();
         
-        public ChartValues<float>? WeightValues { get; set; }
+        public ChartValues<double>? WeightValues { get; set; }
         public string[]? Days { get; set; }
 
-        public Func<float, string>? LineFormatter { get; private set; }
+        public Func<double, string>? LineFormatter { get; private set; }       
 
         public DailyStatisticsViewModel(DateTime startDate, DateTime endDate)
         {
             IEnumerable<DailyWeight> weight = _weightStatisticsService.LoadData(startDate, endDate);
 
-            WeightValues = new ChartValues<float>(weight.Select(w => w.Weight));
+            WeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
             Days = weight.Select(c => (c.Date).ToString("dd.MM.yy")).ToArray();
-            LineFormatter = value => value.ToString("N1");
+            LineFormatter = value => value.ToString("N1");            
         }
     }
 }

@@ -13,30 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Weight_Tracker.UserControls
+namespace Weight_Tracker.Views
 {
     /// <summary>
-    /// Interaction logic for Gauge.xaml
+    /// Interaction logic for BmiInfoCard.xaml
     /// </summary>
-    public partial class Gauge : UserControl
+    public partial class BmiInfoCard : UserControl
     {
-        private double _value;
-        public Gauge()
+        public BmiInfoCard()
         {
             InitializeComponent();
-
-            Value = 73.5;
-
-            DataContext = this;
-        }
-
-        public double Value
-        {
-            get { return _value; }
-            set
-            {
-                _value = value;
-            }
         }
     }
 }
