@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Weight_Tracker.UserControls
+namespace Weight_Tracker.Views
 {
     /// <summary>
     /// Interaction logic for LineChart.xaml

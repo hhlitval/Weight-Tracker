@@ -14,7 +14,7 @@ namespace Weight_Tracker.ViewModels
         private readonly DatabaseMonthlyStatistics _weightStatisticsService = new DatabaseMonthlyStatistics();
         public ChartValues<double>? MonthlyWeightValues { get; set; }
         public string[]? MonthYear { get; set; }
-        public Func<float, string>? LineFormatter { get; private set; }
+        public Func<float, string>? BarFormatter { get; private set; }
 
         public MonthlyStatisticsViewModel()
         {
@@ -22,7 +22,7 @@ namespace Weight_Tracker.ViewModels
 
             MonthlyWeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
             MonthYear = weight.Select(c => c.Date).ToArray();
-            LineFormatter = value => value.ToString("N1");
+            BarFormatter = value => value.ToString("F1");
         }
     }
 }

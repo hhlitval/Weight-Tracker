@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-        xmlns:uc="clr-namespace:Weight_Tracker.InfoCard"
-        xmlns:linechart="clr-namespace:Weight_Tracker.UserControls" 
-        xmlns:bmicard="clr-namespace:Weight_Tracker.Views"
-        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:Weight_Tracker.Views"
+        xmlns:linechart="clr-namespace:Weight_Tracker.Views" 
+        xmlns:bmicard="clr-namespace:Weight_Tracker.Views"  
+        mc:Ignorable="d" Name="Main_Window"
         Height="700" Width="1000" WindowStartupLocation="CenterScreen" 
         Background="Transparent" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize">
@@ -82,29 +82,29 @@
             
             <!-- Info Cards -->
             <Grid Grid.Column="1" Grid.Row="3">
-                <uc:InfoCard Margin="0 10 10 10" Number="78.6 kg" Title="Today" Grid.Column="1" Grid.Row="1"
-                         IsTechnical="False" IsActive="True"/>
+                <uc:InfoCard Margin="0 10 10 10" Number="{Binding TodayWeight, StringFormat=F1}" Title="Today" Grid.Column="1" Grid.Row="1"
+                         IsPositive="{Binding IsPositiveToday}" Difference="{Binding TodayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"/>
             </Grid>
             
             <Grid Grid.Column="1" Grid.Row="4">
-            <uc:InfoCard Margin="0 5 10 15" Number="78.4 kg" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
-                         IsTechnical="True" IsActive="True"/>
+                <uc:InfoCard Margin="0 5 10 15" Number="{Binding YesterdayWeight, StringFormat=F1}" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
+                         IsPositive="{Binding IsPositiveYesterday}" Difference="{Binding YesterdayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"/>
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="5">
-                <uc:InfoCard Margin="0 0 10 20" Number="78.4 kg" Title="Month average" Grid.Column="2" Grid.Row="1" 
+                <uc:InfoCard Margin="0 0 10 20" Number="78.4" Title="Month average" Grid.Column="2" Grid.Row="1" 
                          />
             </Grid>
 
             <!-- BMI Index -->
-            <bmicard:BmiInfoCard  Grid.Row="3" Grid.Column="2" Grid.RowSpan="3"/>
+            <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3"/>
 
 
             <!-- Month Average -->   
             <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Margin="10 10 20 20">
                 <Grid>
                     <TextBlock Text="Average Monthly Weight" Style="{StaticResource titleText}"/>
-                    <linechart:BarChart/>
+                    <linechart:BarChart x:Name="barChart"/>
                 </Grid>
             </Border>
         </Grid>

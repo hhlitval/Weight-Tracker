@@ -16,8 +16,15 @@ namespace Weight_Tracker.ViewModels
         private readonly DateTime yesterdayDate = DateTime.Today.AddDays(-1);
 
         public double TodayWeight { get; set; }
+        public double TodayDifference { get; set; }
+        public bool IsPositiveToday { get; set; }
 
         public double YesterdayWeight { get; set; }
+        public double YesterdayDifference { get; set; }
+        public bool IsPositiveYesterday { get; set; }
+
+
+        public double MonthAverageWeight { get; set; }
 
         public InfoCardViewModel()
         {
@@ -25,6 +32,8 @@ namespace Weight_Tracker.ViewModels
             
             TodayWeight = (from v in weight where v.Date == todayDate select v.Weight).FirstOrDefault();
             YesterdayWeight = (from v in weight where v.Date == yesterdayDate select v.Weight).FirstOrDefault();
+            IsPositiveToday = (TodayDifference = TodayWeight - YesterdayWeight) > 0 ? false :  true;
+            IsPositiveYesterday = (YesterdayDifference = YesterdayWeight - 75) > 0 ? false : true;
         }        
     }
 }

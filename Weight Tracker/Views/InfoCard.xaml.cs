@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Weight_Tracker.InfoCard
+namespace Weight_Tracker.Views
 {    
     public partial class InfoCard : UserControl
     {
@@ -40,22 +40,22 @@ namespace Weight_Tracker.InfoCard
         public static readonly DependencyProperty NumberProperty =
             DependencyProperty.Register("Number", typeof(string), typeof(InfoCard));
 
-        public bool IsActive
+        public bool IsPositive
         {
-            get { return (bool)GetValue(IsActiveProperty); }
-            set { SetValue(IsActiveProperty, value); }
+            get { return (bool)GetValue(IsPositiveProperty); }
+            set { SetValue(IsPositiveProperty, value); }
         }
 
-        public static readonly DependencyProperty IsActiveProperty =
-            DependencyProperty.Register("IsActive", typeof(bool), typeof(InfoCard));
+        public static readonly DependencyProperty IsPositiveProperty =
+            DependencyProperty.Register("IsPositive", typeof(bool), typeof(InfoCard));
 
-        public bool IsTechnical
+        public string Difference
         {
-            get { return (bool)GetValue(IsTechnicalProperty); }
-            set { SetValue(IsTechnicalProperty, value); }
+            get { return (string)GetValue(DifferenceProperty); }
+            set { SetValue(DifferenceProperty, value); }
         }
 
-        public static readonly DependencyProperty IsTechnicalProperty =
-            DependencyProperty.Register("IsTechnical", typeof(bool), typeof(InfoCard));
+        public static readonly DependencyProperty DifferenceProperty =
+            DependencyProperty.Register("Difference", typeof(string), typeof(InfoCard));
     }
 }

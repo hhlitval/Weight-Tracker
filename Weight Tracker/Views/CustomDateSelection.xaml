@@ -1,0 +1,64 @@
+﻿<Window x:Class="Weight_Tracker.Views.CustomDateSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Weight_Tracker.Views"
+        mc:Ignorable="d" Height="460" Width="600"
+        WindowStartupLocation="CenterScreen" Background="Transparent" 
+        AllowsTransparency="True"
+        WindowStyle="None" ResizeMode="NoResize">
+
+    <Border CornerRadius="15" Background="#162233" BorderBrush="#545454" BorderThickness="1.5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>            
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="290"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Text="From Date:" FontWeight="SemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 0"
+                   Foreground="#fcfafa" FontSize="16"/>
+            <TextBlock Grid.Column="1" Text="To Date:" FontWeight="SemiBold" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 0"
+                   Foreground="#fcfafa" FontSize="16"/>
+            
+            <Border Grid.Column="0" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
+                <TextBox BorderThickness="0" Height="25" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
+                         VerticalContentAlignment="Center"
+                         Text="{Binding ElementName=calendar1, Path=SelectedDate, StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+
+            <Border Grid.Column="0" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
+                <Calendar x:Name="calendar1" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
+                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
+                          SelectionMode="MultipleRange" IsTodayHighlighted="False"/>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
+                <TextBox BorderThickness="0" Height="20" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
+                         VerticalContentAlignment="Center"
+                         Text="{Binding ElementName=calendar2, Path=SelectedDate, StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
+                <Calendar x:Name="calendar2" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
+                          CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
+                          SelectionMode="MultipleRange"/>
+            </Border>
+
+            <Grid Grid.Row="3" Grid.Column="2">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
+                            Style="{StaticResource selectCustomDateButton1}"/>
+                    <Button Content="Apply" HorizontalAlignment="Right" Margin="0 20 20 20"
+                            Style="{StaticResource selectCustomDateButton2}" Click="Button_Click_1"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

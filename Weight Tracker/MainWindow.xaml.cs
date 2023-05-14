@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Weight_Tracker.ViewModels;
+using Weight_Tracker.Views;
 
 namespace Weight_Tracker
 {
@@ -29,12 +30,12 @@ namespace Weight_Tracker
         public MainWindow()
         {
             InitializeComponent();
-
             
-            DataContext = new DailyStatisticsViewModel(startDate, endDate);
-            DataContext = new MonthlyStatisticsViewModel();
-            DataContext = new BmiViewModel();
 
+            DataContext = new DailyStatisticsViewModel(startDate, endDate);
+            barChart.DataContext = new MonthlyStatisticsViewModel();
+            bmiCard.DataContext = new BmiViewModel();
+            DataContext = new InfoCardViewModel();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -71,8 +72,10 @@ namespace Weight_Tracker
 
         private void customButtonClick(object sender, RoutedEventArgs e)
         {
-            DatePickerWindow datePickerWindow = new DatePickerWindow();
-            datePickerWindow.Show();
-        }
+            CustomDateSelection datePickerWindow = new CustomDateSelection();
+            Main_Window.Effect = new BlurEffect();
+            datePickerWindow.ShowDialog();            
+            Main_Window.Effect = null;
+        }        
     }
 }

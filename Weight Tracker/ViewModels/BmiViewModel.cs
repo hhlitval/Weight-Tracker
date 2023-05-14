@@ -8,7 +8,7 @@ using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
 {
-    class BmiViewModel
+    class BmiViewModel : BaseViewModel
     {
         public double BmiValue { get; set; }       
 

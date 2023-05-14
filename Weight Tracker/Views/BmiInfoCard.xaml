@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:linechart="clr-namespace:Weight_Tracker.UserControls"
+             xmlns:linechart="clr-namespace:Weight_Tracker.Views"
              xmlns:local="clr-namespace:Weight_Tracker.Views"
              mc:Ignorable="d" 
              d:DesignHeight="270" d:DesignWidth="220" Name="BmiCard">

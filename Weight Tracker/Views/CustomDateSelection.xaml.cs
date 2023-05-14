@@ -12,16 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Weight_Tracker
+namespace Weight_Tracker.Views
 {
     /// <summary>
-    /// Interaction logic for DatePickerWindow.xaml
+    /// Interaction logic for CustomDateSelection.xaml
     /// </summary>
-    public partial class DatePickerWindow : Window
+    public partial class CustomDateSelection : Window
     {
-        public DatePickerWindow()
+        public CustomDateSelection()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
