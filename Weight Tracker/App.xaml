@@ -83,10 +83,10 @@
         
         <Style x:Key="CalendarCalendarButtonStyleNew" TargetType="{x:Type CalendarButton}">
             <Setter Property="Background" Value="#599ceb"/>
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Margin" Value="5 25 5 5"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">

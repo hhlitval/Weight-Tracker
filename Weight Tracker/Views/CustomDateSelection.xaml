@@ -39,6 +39,8 @@
                           SelectionMode="MultipleRange" IsTodayHighlighted="False"/>
             </Border>
 
+            <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="12" Background="#fcfafa"/>
+
             <Border Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <TextBox BorderThickness="0" Height="20" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
                          VerticalContentAlignment="Center"
