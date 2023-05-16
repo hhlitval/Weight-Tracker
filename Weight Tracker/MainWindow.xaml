@@ -46,7 +46,7 @@
                         <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
                     </Button>
 
-                    <Button Style="{StaticResource menuButton}" Margin="0 10 0 0" ToolTip="Add Weight">
+                    <Button Style="{StaticResource menuButton}" Margin="0 10 0 0" ToolTip="Add Weight" Click="AddButton_Click">
                         <Icon:PackIconMaterial Kind="Plus" Style="{StaticResource menuButtonIcon}"/>
                     </Button>
 
@@ -79,7 +79,6 @@
                     <linechart:LineChart x:Name="dailyStatisticsLineChart"/>
                 </Grid>
             </Border>
-            
             <!-- Info Cards -->
             <Grid Grid.Column="1" Grid.Row="3">
                 <uc:InfoCard Margin="0 10 10 10" Number="{Binding TodayWeight, StringFormat=F1}" Title="Today" Grid.Column="1" Grid.Row="1"

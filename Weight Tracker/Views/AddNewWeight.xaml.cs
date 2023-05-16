@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Weight_Tracker.Views
 {
     /// <summary>
-    /// Interaction logic for CustomDateSelection.xaml
+    /// Interaction logic for AddNewWeight.xaml
     /// </summary>
-    public partial class CustomDateSelection : Window
+    public partial class AddNewWeight : Window
     {
-        public CustomDateSelection()
+        public AddNewWeight()
         {
             InitializeComponent();
         }

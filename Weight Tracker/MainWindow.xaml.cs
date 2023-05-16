@@ -76,6 +76,14 @@ namespace Weight_Tracker
             Main_Window.Effect = new BlurEffect();
             datePickerWindow.ShowDialog();            
             Main_Window.Effect = null;
-        }        
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddNewWeight addNewWeight = new ();
+            Main_Window.Effect = new BlurEffect();
+            addNewWeight.ShowDialog();
+            Main_Window.Effect = null;
+        }
     }
 }

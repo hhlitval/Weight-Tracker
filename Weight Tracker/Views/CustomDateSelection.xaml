@@ -30,13 +30,13 @@
             <Border Grid.Column="0" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <TextBox BorderThickness="0" Height="25" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
                          VerticalContentAlignment="Center"
-                         Text="{Binding ElementName=calendar1, Path=SelectedDate, StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding ElementName=calendar1, Path=SelectedDate, ConverterCulture='de-DE', StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Border>
 
             <Border Grid.Column="0" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <Calendar x:Name="calendar1" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="MultipleRange" IsTodayHighlighted="False"/>
+                          SelectionMode="MultipleRange" IsTodayHighlighted="False" GotMouseCapture="calendar_GotMouseCapture"/>
             </Border>
 
             <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="12" Background="#fcfafa"/>
@@ -44,21 +44,21 @@
             <Border Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <TextBox BorderThickness="0" Height="20" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
                          VerticalContentAlignment="Center"
-                         Text="{Binding ElementName=calendar2, Path=SelectedDate, StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                         Text="{Binding ElementName=calendar2, Path=SelectedDate, StringFormat=d, ConverterCulture='de-DE', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Border>
 
             <Border Grid.Column="1" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <Calendar x:Name="calendar2" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="MultipleRange"/>
+                          SelectionMode="MultipleRange" GotMouseCapture="calendar_GotMouseCapture"/>
             </Border>
 
             <Grid Grid.Row="3" Grid.Column="2">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
-                            Style="{StaticResource selectCustomDateButton1}"/>
+                            Style="{StaticResource cancelButtonDialog}"/>
                     <Button Content="Apply" HorizontalAlignment="Right" Margin="0 20 20 20"
-                            Style="{StaticResource selectCustomDateButton2}" Click="Button_Click_1"/>
+                            Style="{StaticResource applyButtonDialog}" Click="Button_Click_1"/>
                 </StackPanel>
             </Grid>
         </Grid>
