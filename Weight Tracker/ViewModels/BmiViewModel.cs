@@ -8,13 +8,17 @@ using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
 {
-    class BmiViewModel : BaseViewModel
+    public class BmiViewModel : BaseViewModel
     {
+        private readonly DateTime _today = Date.Today;
+        private readonly DateTime _monthAgo = Date.MonthAgo;
         public double BmiValue { get; set; }       
 
         public BmiViewModel()
         {
-            BmiValue = new InfoCardViewModel().TodayWeight;
+            IEnumerable<DailyWeight> weight = new LoadDataFromDB(_monthAgo, _today).WeightStatistics;
+
+            BmiValue = (from v in weight where v.Date == _today select v.Weight).FirstOrDefault();
         }
     }
 }

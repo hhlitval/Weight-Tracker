@@ -41,7 +41,7 @@ namespace Weight_Tracker.Views
             if (originalElement is CalendarDayButton || originalElement is CalendarItem)
             {
                 originalElement.ReleaseMouseCapture();
-            }
-        }
+            }        
+        }        
     }
 }

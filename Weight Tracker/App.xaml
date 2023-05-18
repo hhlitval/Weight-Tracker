@@ -509,8 +509,10 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Rectangle x:Name="TodayBackground" Fill="Transparent" Opacity="0" RadiusX="15" RadiusY="15" Stroke="#446087" StrokeThickness="1.5"/>
-                            <Rectangle x:Name="SelectedBackground" Fill="#f55858" Opacity="0" RadiusX="15" RadiusY="15"/>
+                            <!-- Today's date background -->
+                            <Rectangle x:Name="TodayBackground" Fill="Transparent" Opacity="0" RadiusX="15" RadiusY="15" Stroke="#1c6ac7" StrokeThickness="1.5"/>
+                            <!-- Selected date background -->
+                            <Rectangle x:Name="SelectedBackground" Fill="#fc8181" Opacity="0" RadiusX="15" RadiusY="15"/>
                             <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
                             <Rectangle x:Name="HighlightBackground" Fill="#599ceb" Opacity="0" RadiusX="15" RadiusY="15"/>
                             <ContentPresenter x:Name="NormalText" TextElement.Foreground="#ffffff" HorizontalAlignment="Center" Margin="5 3" VerticalAlignment="Center"/>
@@ -750,7 +752,7 @@
                     <Setter Property="Background" Value="#3075c7"/>
                     <Setter Property="Foreground" Value="#ffffff"/>                    
                 </Trigger>
-            </Style.Triggers>
+            </Style.Triggers>      
         </Style>
 
         <Style x:Key="cancelButtonDialog" TargetType="Button">
@@ -758,7 +760,8 @@
             <Setter Property="Foreground" Value="#fcfafa"/>
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Height" Value="35"/>
-            <Setter Property="Width" Value="90"/>            
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="IsCancel" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -783,6 +786,7 @@
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Height" Value="35"/>
             <Setter Property="Width" Value="90"/>
+            <Setter Property="IsDefault" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">

@@ -14,6 +14,8 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Weight_Tracker.DbConnection;
+using Weight_Tracker.Models;
 using Weight_Tracker.ViewModels;
 using Weight_Tracker.Views;
 
@@ -24,18 +26,18 @@ namespace Weight_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DateTime startDate = new DateTime(2022, 10, 17).AddDays(-30);
-        private DateTime endDate = new DateTime(2022, 10, 17);
-        
+        private DateTime startDate = Date.startDate;
+        private DateTime endDate = Date.endDate;
+
         public MainWindow()
         {
             InitializeComponent();
-            
 
-            DataContext = new DailyStatisticsViewModel(startDate, endDate);
-            barChart.DataContext = new MonthlyStatisticsViewModel();
-            bmiCard.DataContext = new BmiViewModel();
-            DataContext = new InfoCardViewModel();
+            DataContext = new DashboardViewModel(
+                new DailyStatisticsViewModel(startDate, endDate),
+                new MonthlyStatisticsViewModel(),
+                new InfoCardViewModel(),
+                new BmiViewModel());
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -74,7 +76,7 @@ namespace Weight_Tracker
         {
             CustomDateSelection datePickerWindow = new CustomDateSelection();
             Main_Window.Effect = new BlurEffect();
-            datePickerWindow.ShowDialog();            
+            datePickerWindow.ShowDialog();
             Main_Window.Effect = null;
         }
 

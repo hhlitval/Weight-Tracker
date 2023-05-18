@@ -7,7 +7,7 @@
         mc:Ignorable="d" Height="460" Width="600"
         WindowStartupLocation="CenterScreen" Background="Transparent" 
         AllowsTransparency="True"
-        WindowStyle="None" ResizeMode="NoResize">
+        WindowStyle="None" ResizeMode="NoResize" >
 
     <Border CornerRadius="15" Background="#162233" BorderBrush="#545454" BorderThickness="1.5">
         <Grid>
@@ -34,9 +34,9 @@
             </Border>
 
             <Border Grid.Column="0" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
-                <Calendar x:Name="calendar1" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
+                <Calendar x:Name="calendar1" xml:lang="en-US" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="MultipleRange" IsTodayHighlighted="False" GotMouseCapture="calendar_GotMouseCapture"/>
+                          SelectionMode="SingleDate" IsTodayHighlighted="False" GotMouseCapture="calendar_GotMouseCapture"/>
             </Border>
 
             <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="12" Background="#fcfafa"/>
@@ -48,18 +48,18 @@
             </Border>
 
             <Border Grid.Column="1" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
-                <Calendar x:Name="calendar2" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
+                <Calendar x:Name="calendar2" xml:lang="en-US" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="MultipleRange" GotMouseCapture="calendar_GotMouseCapture"/>
+                          SelectionMode="SingleDate" GotMouseCapture="calendar_GotMouseCapture"/>
             </Border>
 
             <Grid Grid.Row="3" Grid.Column="2">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
+                    <Button x:Name="cancel" Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
                             Style="{StaticResource cancelButtonDialog}"/>
-                    <Button Content="Apply" HorizontalAlignment="Right" Margin="0 20 20 20"
-                            Style="{StaticResource applyButtonDialog}" Click="Button_Click_1"/>
-                </StackPanel>
+                    <Button Content="Apply" HorizontalAlignment="Right" Margin="0 20 20 20" 
+                            Style="{StaticResource applyButtonDialog}" Click="Button_Click_1"/>                                   
+                </StackPanel>                
             </Grid>
         </Grid>
     </Border>

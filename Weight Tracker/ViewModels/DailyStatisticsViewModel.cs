@@ -2,17 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Weight_Tracker.DbConnection;
 using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
 {    
     public class DailyStatisticsViewModel : BaseViewModel
-    {
-        private readonly DatabaseDailyStatistics _weightStatisticsService = new DatabaseDailyStatistics();
-        
+    {        
         public ChartValues<double>? WeightValues { get; set; }
         public string[]? Days { get; set; }
 
@@ -20,11 +16,11 @@ namespace Weight_Tracker.ViewModels
 
         public DailyStatisticsViewModel(DateTime startDate, DateTime endDate)
         {
-            IEnumerable<DailyWeight> weight = _weightStatisticsService.LoadData(startDate, endDate);
+            IEnumerable<DailyWeight> weight = new LoadDataFromDB(startDate, endDate).WeightStatistics;
 
             WeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
             Days = weight.Select(c => (c.Date).ToString("dd.MM.yy")).ToArray();
-            LineFormatter = value => value.ToString("N1");            
+            LineFormatter = value => value.ToString("F1");            
         }
     }
 }

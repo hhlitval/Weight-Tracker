@@ -28,7 +28,7 @@
             </lvc:CartesianChart.Series>
 
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding MonthYear}">
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding MonthAndYear}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0" />
                     </lvc:Axis.Separator>

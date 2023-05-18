@@ -30,7 +30,7 @@
             </Grid.RowDefinitions>
     
         
-        <!-- Logo & Menu Bar -->        
+            <!-- Logo & Menu Bar -->        
             <StackPanel Orientation="Horizontal" Margin="15 20 15 10" HorizontalAlignment="Center" ToolTip="Weight Tracker">
                 <Rectangle Width="6" Height="15" Fill="#f7fc62" Margin="0 5 2 0"/>
                 <Rectangle Width="6" Height="25" Fill="#f55858" Margin="0 0 2 1"/>
@@ -40,7 +40,7 @@
             <Border Grid.Row="0" Grid.RowSpan="6" Background="#1e2f47" CornerRadius="18" Margin="20" 
                     Height="200" VerticalAlignment="Center">
                 
-                <!-- Left Menu Buttons -->
+                <!-- Left Panel Buttons -->
                 <StackPanel>
                     <Button Style="{StaticResource menuButton}" Margin="0 10 0 0" ToolTip="Home">
                         <Icon:PackIconMaterial Kind="Home" Style="{StaticResource menuButtonIcon}"/>
@@ -60,34 +60,38 @@
                 </StackPanel>
             </Border>
         
-            <!-- Top Menu Buttons -->
+            <!-- Top Right Menu Buttons -->
             <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" 
                         VerticalAlignment="Bottom" Margin="0 0 20 10">
                 <Button Content="This Week" Style="{StaticResource topMenuButton}" Click="thisWeekButtonClick"/>
                 <Button Content="This Month" Style="{StaticResource topMenuButton}" Click="thisMonthButtonClick" 
                         Background="#3075c7" Foreground="#fcfafa"/>
-                <Button Content="This Year" Style="{StaticResource topMenuButton}" Click="thisYearButtonClick"/>
+                <Button Content="This Year" Style="{StaticResource topMenuButton}" Click="thisYearButtonClick"
+                        />
                 <Button Content="Custom" Style="{StaticResource topMenuButton}" Click="customButtonClick"/>
 
             </StackPanel>
 
-            <!-- Daily Chart -->
+            <!-- Daily Statistics Chart -->
             <Border Style="{StaticResource mainBorder}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
                     Grid.RowSpan="2" Margin="0 10 20 10">
                 <Grid>
                     <TextBlock Text="Daily Statistics" Style="{StaticResource titleText}"/>
-                    <linechart:LineChart x:Name="dailyStatisticsLineChart"/>
+                    <linechart:LineChart x:Name="dailyStatisticsLineChart" DataContext="{Binding DailyStatisticsViewModel}"/>
                 </Grid>
             </Border>
+        
             <!-- Info Cards -->
             <Grid Grid.Column="1" Grid.Row="3">
                 <uc:InfoCard Margin="0 10 10 10" Number="{Binding TodayWeight, StringFormat=F1}" Title="Today" Grid.Column="1" Grid.Row="1"
-                         IsPositive="{Binding IsPositiveToday}" Difference="{Binding TodayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"/>
+                         IsPositive="{Binding IsPositiveToday}" Difference="{Binding TodayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"
+                             DataContext="{Binding InfoCardViewModel}"/>
             </Grid>
             
             <Grid Grid.Column="1" Grid.Row="4">
                 <uc:InfoCard Margin="0 5 10 15" Number="{Binding YesterdayWeight, StringFormat=F1}" Title="Yesterday" Grid.Column="2" Grid.Row="1" 
-                         IsPositive="{Binding IsPositiveYesterday}" Difference="{Binding YesterdayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"/>
+                         IsPositive="{Binding IsPositiveYesterday}" Difference="{Binding YesterdayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"
+                             DataContext="{Binding InfoCardViewModel}"/>
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="5">
@@ -96,14 +100,14 @@
             </Grid>
 
             <!-- BMI Index -->
-            <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3"/>
+            <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" DataContext="{Binding BmiViewModel}"/>
 
 
-            <!-- Month Average -->   
+            <!-- Month Average Bar Chart -->   
             <Border Style="{StaticResource mainBorder}" Grid.Row="3" Grid.Column="3" Grid.RowSpan="3" Margin="10 10 20 20">
                 <Grid>
                     <TextBlock Text="Average Monthly Weight" Style="{StaticResource titleText}"/>
-                    <linechart:BarChart x:Name="barChart"/>
+                    <linechart:BarChart x:Name="barChart" DataContext="{Binding MonthlyStatisticsViewModel}"/>
                 </Grid>
             </Border>
         </Grid>

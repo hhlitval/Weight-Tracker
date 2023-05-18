@@ -1,17 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Weight_Tracker.Models;
 
 namespace Weight_Tracker.DbConnection
 {
-    public class DatabaseDailyStatistics : DbConnection
+    public class LoadDataFromDB : DbConnection
     {
-        public ObservableCollection<DailyWeight> LoadData(DateTime startDate, DateTime endDate)
+        public static readonly double value;
+        public ObservableCollection<DailyWeight> WeightStatistics { get; set; }
+        
+        public LoadDataFromDB(DateTime start, DateTime end)
+        {
+            WeightStatistics = LoadData(start, end);
+        }
+
+        private ObservableCollection<DailyWeight> LoadData(DateTime startDate, DateTime endDate)
         {
             var dbWeightList = new ObservableCollection<DailyWeight>();            
 
@@ -40,6 +44,6 @@ namespace Weight_Tracker.DbConnection
                     return dbWeightList;
                 }
             }
-        }
+        }        
     }
 }
