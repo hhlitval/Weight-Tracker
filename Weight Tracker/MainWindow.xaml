@@ -63,12 +63,12 @@
             <!-- Top Right Menu Buttons -->
             <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" 
                         VerticalAlignment="Bottom" Margin="0 0 20 10">
-                <Button Content="This Week" Style="{StaticResource topMenuButton}" Click="thisWeekButtonClick"/>
-                <Button Content="This Month" Style="{StaticResource topMenuButton}" Click="thisMonthButtonClick" 
+                <Button Content="This Week" Style="{StaticResource topMenuButton}" Click="ThisWeekButtonClick"/>
+                <Button Content="This Month" Style="{StaticResource topMenuButton}" Click="ThisMonthButtonClick" 
                         Background="#3075c7" Foreground="#fcfafa"/>
-                <Button Content="This Year" Style="{StaticResource topMenuButton}" Click="thisYearButtonClick"
+                <Button Content="This Year" Style="{StaticResource topMenuButton}" Click="ThisYearButtonClick"
                         />
-                <Button Content="Custom" Style="{StaticResource topMenuButton}" Click="customButtonClick"/>
+                <Button Content="Custom" Style="{StaticResource topMenuButton}" Click="CustomButtonClick"/>
 
             </StackPanel>
 

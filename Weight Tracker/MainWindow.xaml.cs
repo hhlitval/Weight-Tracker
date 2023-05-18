@@ -14,7 +14,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Weight_Tracker.DbConnection;
+using Weight_Tracker.DatabaseServices;
 using Weight_Tracker.Models;
 using Weight_Tracker.ViewModels;
 using Weight_Tracker.Views;
@@ -53,26 +53,23 @@ namespace Weight_Tracker
             Application.Current.Shutdown();
         }
 
-        private void thisWeekButtonClick(object sender, RoutedEventArgs e)
-        {
-            endDate = new DateTime(2022, 10, 17);
-            startDate = endDate.AddDays(-4);
-            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(startDate, endDate);
+        private void ThisWeekButtonClick(object sender, RoutedEventArgs e)
+        {            
+            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(Date.WeekAgo, Date.Today);
         }
 
-        private void thisMonthButtonClick(object sender, RoutedEventArgs e)
+        private void ThisMonthButtonClick(object sender, RoutedEventArgs e)
         {            
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(startDate, endDate);
         }
 
-        private void thisYearButtonClick(object sender, RoutedEventArgs e)
+        private void ThisYearButtonClick(object sender, RoutedEventArgs e)
         {
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
-                new DateTime(2022, 10, 17).AddDays(-30),
-                new DateTime(2022, 10, 17));
+                Date.YearAgo, Date.Today);
         }
 
-        private void customButtonClick(object sender, RoutedEventArgs e)
+        private void CustomButtonClick(object sender, RoutedEventArgs e)
         {
             CustomDateSelection datePickerWindow = new CustomDateSelection();
             Main_Window.Effect = new BlurEffect();
@@ -85,6 +82,11 @@ namespace Weight_Tracker
             AddNewWeight addNewWeight = new ();
             Main_Window.Effect = new BlurEffect();
             addNewWeight.ShowDialog();
+            DataContext = new DashboardViewModel(
+                new DailyStatisticsViewModel(startDate, endDate),
+                new MonthlyStatisticsViewModel(),
+                new InfoCardViewModel(),
+                new BmiViewModel());
             Main_Window.Effect = null;
         }
     }

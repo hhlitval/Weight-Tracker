@@ -3,11 +3,10 @@ using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using Weight_Tracker.Models;
 
-namespace Weight_Tracker.DbConnection
+namespace Weight_Tracker.DatabaseServices
 {
     public class LoadDataFromDB : DbConnection
-    {
-        public static readonly double value;
+    { 
         public ObservableCollection<DailyWeight> WeightStatistics { get; set; }
         
         public LoadDataFromDB(DateTime start, DateTime end)
@@ -18,7 +17,7 @@ namespace Weight_Tracker.DbConnection
         private ObservableCollection<DailyWeight> LoadData(DateTime startDate, DateTime endDate)
         {
             var dbWeightList = new ObservableCollection<DailyWeight>();            
-
+            
             using (var connection = GetConnection())
             {
                 connection.Open();
@@ -37,7 +36,7 @@ namespace Weight_Tracker.DbConnection
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        dbWeightList.Add(new DailyWeight() { Date = (DateTime)reader[0], Weight = (float)reader[1]});
+                        dbWeightList.Add(new DailyWeight() { Date = (DateTime)reader["Day"], Weight = (float)reader["Weight"]});
                     }
                     reader.Close();
 

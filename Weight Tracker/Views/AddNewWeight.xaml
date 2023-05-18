@@ -23,7 +23,7 @@
             <Border Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 20 20 10">
                 <Calendar x:Name="calendar" xml:lang="en-US" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="SingleDate" GotMouseCapture="calendar_GotMouseCapture"/>
+                          SelectionMode="SingleDate" GotMouseCapture="Calendar_GotMouseCapture"/>
             </Border>
 
             <StackPanel Grid.Row="2" Margin="20 0 20 0" Orientation="Horizontal">
@@ -40,10 +40,10 @@
 
             <Grid Grid.Row="4" Grid.Column="2">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
+                    <Button Content="Cancel" Click="CancelButton_Click" Margin="0 20 10 20" 
                             Style="{StaticResource cancelButtonDialog}" />
                     <Button Content="Save" HorizontalAlignment="Right" Margin="0 20 20 20"
-                            Style="{StaticResource applyButtonDialog}" Click="Button_Click_1"/>
+                            Style="{StaticResource applyButtonDialog}" Click="SaveButton_Click"/>
                 </StackPanel>
             </Grid>
         </Grid>

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Weight_Tracker.DatabaseServices;
 
 namespace Weight_Tracker.Views
 {
@@ -20,22 +21,27 @@ namespace Weight_Tracker.Views
     /// </summary>
     public partial class AddNewWeight : Window
     {
+        private readonly InsertDataIntoDatabase insertNewWeight = new ();
         public AddNewWeight()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();            
         }
+        
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            DateTime selectedDate = calendar.SelectedDate ?? DateTime.Today;
+            string enteredValue = textBox.Text;
+            insertNewWeight.InsertData(selectedDate, enteredValue);
+            Close();
         }
 
-        private void calendar_GotMouseCapture(object sender, MouseEventArgs e)
+        private void Calendar_GotMouseCapture(object sender, MouseEventArgs e)
         {
             UIElement? originalElement = e.OriginalSource as UIElement;
             if (originalElement is CalendarDayButton || originalElement is CalendarItem)

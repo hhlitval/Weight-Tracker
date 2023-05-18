@@ -17,6 +17,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
+    
     <Grid>
         <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0" >
             <lvc:CartesianChart.DataTooltip>

@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             mc:Ignorable="d">
-    <UserControl.Resources>
-        <Style TargetType="lvc:LineSeries">            
+             xmlns:local="clr-namespace:Weight_Tracker.ViewModels"
+             mc:Ignorable="d">    
+    
+    <UserControl.Resources>        
+        <Style TargetType="lvc:LineSeries"> 
             <Setter Property="StrokeThickness" Value="2"/>
             <Setter Property="PointGeometrySize" Value="0"/>
-            <Setter Property="Stroke" Value="#2889fc"/>            
-
+            <Setter Property="Stroke" Value="#2889fc"/>
             <Setter Property="Fill">
                 <Setter.Value>
                     <LinearGradientBrush>
@@ -23,10 +24,17 @@
     </UserControl.Resources>
     
     <Grid>
-        <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None">
-            
+        <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None">                       
+
             <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7"/>
+                <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7">
+                    <lvc:DefaultTooltip.Content>
+                        <StackPanel>
+                            <TextBlock Text="{Binding WeightValues, StringFormat=F1}" FontWeight="Bold" />
+                            <TextBlock Text="{Binding Days}" />
+                        </StackPanel>
+                    </lvc:DefaultTooltip.Content>
+                </lvc:DefaultTooltip>
             </lvc:CartesianChart.DataTooltip>
             
             <lvc:CartesianChart.Series>
@@ -42,12 +50,12 @@
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="#675f8c" ShowLabels="True" MinValue="72" MaxValue="76" LabelFormatter="{Binding YFormatter}">
+                <lvc:Axis Foreground="#675f8c" ShowLabels="True" MinValue="72" MaxValue="78" LabelFormatter="{Binding YFormatter}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="1" Stroke="#2c3a54" />
                     </lvc:Axis.Separator>
                 </lvc:Axis>
-            </lvc:CartesianChart.AxisY>
+            </lvc:CartesianChart.AxisY>            
         </lvc:CartesianChart>
     </Grid>
 </UserControl>

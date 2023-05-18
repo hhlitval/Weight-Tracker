@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Weight_Tracker.DbConnection;
+using Weight_Tracker.DatabaseServices;
 using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
@@ -14,11 +14,11 @@ namespace Weight_Tracker.ViewModels
         private readonly DateTime _today = Date.Today;
         private readonly DateTime _yesterday = Date.Yesterday;
 
-        public double TodayWeight { get; set; }
-        public double TodayDifference { get; set; }
+        public float TodayWeight { get; set; }
+        public float TodayDifference { get; set; }
         public bool IsPositiveToday { get; set; }
-        public double YesterdayWeight { get; set; }
-        public double YesterdayDifference { get; set; }
+        public float YesterdayWeight { get; set; }
+        public float YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
         public double MonthAverageWeight { get; set; }
 

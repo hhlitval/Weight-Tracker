@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlClient;
 
 
-namespace Weight_Tracker.DbConnection
+namespace Weight_Tracker.DatabaseServices
 {
     public class DbConnection
     {

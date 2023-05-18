@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Weight_Tracker.DbConnection;
+using Weight_Tracker.DatabaseServices;
 using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
@@ -12,7 +12,7 @@ namespace Weight_Tracker.ViewModels
     {
         private readonly DateTime _today = Date.Today;
         private readonly DateTime _monthAgo = Date.MonthAgo;
-        public double BmiValue { get; set; }       
+        public float BmiValue { get; set; }       
 
         public BmiViewModel()
         {
