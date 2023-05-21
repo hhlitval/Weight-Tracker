@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,18 +22,29 @@ namespace Weight_Tracker.Views
     /// </summary>
     public partial class CustomDateSelection : Window
     {
+        public delegate void DataChangedEventHandler(DateTime start, DateTime end);
+
+        public event DataChangedEventHandler? DataChanged;
+
         public CustomDateSelection()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {            
+        private void ApplyButton_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime start = calendar1.SelectedDate ?? DateTime.Today;
+            DateTime end = calendar2.SelectedDate ?? DateTime.Today;
+            DataChangedEventHandler? handler = DataChanged;
+            if (handler != null)
+            {
+                handler(start, end);
+            }
             this.Close();
         }
 

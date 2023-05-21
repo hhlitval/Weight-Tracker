@@ -58,28 +58,35 @@ namespace Weight_Tracker
 
         private void CustomButtonClick(object sender, RoutedEventArgs e)
         {
-            CustomDateSelection datePickerWindow = new CustomDateSelection();
+            CustomDateSelection dateSelectionWindow = new CustomDateSelection();
             Main_Window.Effect = new BlurEffect();
-            datePickerWindow.ShowDialog();
+            dateSelectionWindow.DataChanged += OnCustomDate_DataChanged;
+            dateSelectionWindow.ShowDialog();
             Main_Window.Effect = null;
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            AddNewWeight addNewWeight = new ();
+            AddNewWeight addNewWeight = new AddNewWeight();
             Main_Window.Effect = new BlurEffect();
-            addNewWeight.DataChanged += Window1_DataChanged;
+            addNewWeight.DataChanged += AddWeight_DataChanged;
             addNewWeight.ShowDialog();    
             Main_Window.Effect = null;
         }
 
-        private void Window1_DataChanged(object sender, EventArgs e)
+        private void AddWeight_DataChanged(object sender, EventArgs e)
         {
             DataContext = new DashboardViewModel(
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
                 new InfoCardViewModel(),
                 new BmiViewModel());
+        }
+
+        private void OnCustomDate_DataChanged(DateTime start, DateTime end)
+        {
+            dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
+                start, end);
         }
     }
 }

@@ -28,7 +28,7 @@
                    Foreground="#fcfafa" FontSize="16"/>
             
             <Border Grid.Column="0" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
-                <TextBox BorderThickness="0" Height="25" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
+                <TextBox x:Name="startDateTextBox" BorderThickness="0" Height="25" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
                          VerticalContentAlignment="Center"
                          Text="{Binding ElementName=calendar1, Path=SelectedDate, ConverterCulture='de-DE', StringFormat=d, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Border>
@@ -42,7 +42,7 @@
             <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="12" Background="#fcfafa"/>
 
             <Border Grid.Column="1" Grid.Row="1" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
-                <TextBox BorderThickness="0" Height="20" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
+                <TextBox x:Name="endDateTextBox" BorderThickness="0" Height="20" Background="#1e2e44" Foreground="#fcfafa" FontSize="16" Margin="10 0 0 3" 
                          VerticalContentAlignment="Center"
                          Text="{Binding ElementName=calendar2, Path=SelectedDate, StringFormat=d, ConverterCulture='de-DE', Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Border>
@@ -55,10 +55,10 @@
 
             <Grid Grid.Row="3" Grid.Column="2">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button x:Name="cancel" Content="Cancel" Click="Button_Click" Margin="0 20 10 20" 
+                    <Button x:Name="cancel" Content="Cancel" Click="CancelButton_Click" Margin="0 20 10 20" 
                             Style="{StaticResource cancelButtonDialog}"/>
                     <Button Content="Apply" HorizontalAlignment="Right" Margin="0 20 20 20" 
-                            Style="{StaticResource applyButtonDialog}" Click="Button_Click_1"/>                                   
+                            Style="{StaticResource applyButtonDialog}" Click="ApplyButton_Click"/>                                   
                 </StackPanel>                
             </Grid>
         </Grid>
