@@ -21,7 +21,10 @@ namespace Weight_Tracker.Views
     /// </summary>
     public partial class AddNewWeight : Window
     {
-        private readonly InsertDataIntoDatabase insertNewWeight = new ();
+        public delegate void DataChangedEventHandler(object sender, EventArgs e);
+
+        public event DataChangedEventHandler? DataChanged;
+
         public AddNewWeight()
         {
             InitializeComponent();            
@@ -30,14 +33,20 @@ namespace Weight_Tracker.Views
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();            
-        }
-        
+        }        
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            DateTime selectedDate = calendar.SelectedDate ?? DateTime.Today;
+            DataChangedEventHandler? handler = DataChanged;
+            InsertDataIntoDatabase insertNewWeight = new();
             string enteredValue = textBox.Text;
+            DateTime selectedDate = calendar.SelectedDate ?? DateTime.Today;
             insertNewWeight.InsertData(selectedDate, enteredValue);
+
+            if (handler != null)
+            {
+                handler(this, new EventArgs());
+            }            
             Close();
         }
 

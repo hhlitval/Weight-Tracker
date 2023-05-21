@@ -26,7 +26,7 @@ namespace Weight_Tracker.DatabaseServices
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get all data from database
-                    command.CommandText = @"SELECT Day, Weight 
+                    command.CommandText = @"SELECT Day, Weight
                                             FROM TotalWeight 
                                                 WHERE Day between @FROMDATE and @TODATE 
                                                 ORDER BY Day";

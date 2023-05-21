@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Weight_Tracker.ViewModels;
 
 namespace Weight_Tracker.Views
 {
@@ -31,7 +32,7 @@ namespace Weight_Tracker.Views
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
+        {            
             this.Close();
         }
 

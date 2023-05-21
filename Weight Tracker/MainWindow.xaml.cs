@@ -1,20 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Effects;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Weight_Tracker.DatabaseServices;
 using Weight_Tracker.Models;
 using Weight_Tracker.ViewModels;
 using Weight_Tracker.Views;
@@ -81,13 +68,18 @@ namespace Weight_Tracker
         {
             AddNewWeight addNewWeight = new ();
             Main_Window.Effect = new BlurEffect();
-            addNewWeight.ShowDialog();
+            addNewWeight.DataChanged += Window1_DataChanged;
+            addNewWeight.ShowDialog();    
+            Main_Window.Effect = null;
+        }
+
+        private void Window1_DataChanged(object sender, EventArgs e)
+        {
             DataContext = new DashboardViewModel(
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
                 new InfoCardViewModel(),
                 new BmiViewModel());
-            Main_Window.Effect = null;
         }
     }
 }
