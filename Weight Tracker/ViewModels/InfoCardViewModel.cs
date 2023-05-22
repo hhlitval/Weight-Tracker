@@ -21,7 +21,6 @@ namespace Weight_Tracker.ViewModels
         public double YesterdayWeight { get; set; }
         public double YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
-        public double MonthAverageWeight { get; set; }
 
         public InfoCardViewModel()
         {

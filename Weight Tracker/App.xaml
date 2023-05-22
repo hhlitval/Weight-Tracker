@@ -731,6 +731,7 @@
         <Style x:Key="topMenuButton" TargetType="ToggleButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#9eabe2"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="Margin" Value="5 0 0 0"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="80"/>

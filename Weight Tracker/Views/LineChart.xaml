@@ -15,7 +15,7 @@
             <Setter Property="Fill">
                 <Setter.Value>
                     <LinearGradientBrush>
-                        <GradientStop Color="#2e3966" Offset="0.5"/>
+                        <GradientStop Color="#8a81fc" Offset="0.5"/>
                         <GradientStop Color="#435394" Offset="1.2"/>
                     </LinearGradientBrush>
                 </Setter.Value>
@@ -42,7 +42,7 @@
             </lvc:CartesianChart.Series>
             
             <lvc:CartesianChart.AxisX>
-                <lvc:Axis Foreground="#675f8c" ShowLabels="True" Labels="{Binding Days}">
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" Labels="{Binding Days}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0" Stroke="#2c3a54"/>
                     </lvc:Axis.Separator>
@@ -50,7 +50,7 @@
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="#675f8c" ShowLabels="True" MinValue="72" MaxValue="78" LabelFormatter="{Binding YFormatter}">
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="72" MaxValue="78" LabelFormatter="{Binding YFormatter}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="1" Stroke="#2c3a54" />
                     </lvc:Axis.Separator>

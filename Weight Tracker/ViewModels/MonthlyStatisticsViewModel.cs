@@ -16,28 +16,20 @@ namespace Weight_Tracker.ViewModels
         public ChartValues<double>? MonthlyWeightValues { get; set; }
         public string[]? MonthAndYear { get; set; }
         public Func<double, string>? BarFormatter { get; private set; }
+        public double MonthAverage { get; set; }
+        public double MonthDifference { get; set; }
+        public bool IsPositiveMonthDifference { get; set; }
 
         public MonthlyStatisticsViewModel()
         {
             IEnumerable<DailyWeight> weight = new LoadAverageDataFromDB(_yearAgo, _today).WeightStatistics;
 
-
-         //  var result =  weight.Select(weight => new
-         //   {
-         //       Dateformat = weight.Date.ToString("MMM yyyy"),
-         //       Weight = weight.Weight
-         //   })
-         //.GroupBy(weight => weight.Dateformat)
-         //.Select(group => new DailyWeight
-         //{
-         //    Date = DateTime.Parse(),
-         //    Weight = group.Average(weight => weight.Weight)
-         //})
-         //.OrderByDescending(item => item.Date);
-
             MonthlyWeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
             MonthAndYear = weight.Select(c => (c.Date).ToString("MMM yyyy")).ToArray();
             BarFormatter = value => value.ToString("F1");
+            MonthAverage = weight.Select(w => w.Weight).Last();
+            MonthDifference = MonthAverage - (weight.ElementAt(weight.Count() - 2).Weight);
+            IsPositiveMonthDifference = MonthDifference  >= 0 ? false : true;
         }
     }
 }
