@@ -8,7 +8,7 @@ namespace Weight_Tracker.Models
 {
     public class DailyWeight
     {
-        public float Weight { get; set; }
+        public double Weight { get; set; }
         public DateTime Date { get; set; }
     }
 }

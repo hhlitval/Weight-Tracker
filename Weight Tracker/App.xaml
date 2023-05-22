@@ -728,7 +728,7 @@
             <Setter Property="Margin" Value="0"/>
         </Style>
 
-        <Style x:Key="topMenuButton" TargetType="Button">
+        <Style x:Key="topMenuButton" TargetType="ToggleButton">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="#9eabe2"/>
             <Setter Property="Margin" Value="5 0 0 0"/>
@@ -738,8 +738,8 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>                        
                     </ControlTemplate>
@@ -751,6 +751,11 @@
                     <Setter Property="Tag" Value="Visible" />
                     <Setter Property="Background" Value="#3075c7"/>
                     <Setter Property="Foreground" Value="#ffffff"/>                    
+                </Trigger>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Tag" Value="Visible" />
+                    <Setter Property="Background" Value="#3075c7"/>
+                    <Setter Property="Foreground" Value="#ffffff"/>
                 </Trigger>
             </Style.Triggers>      
         </Style>

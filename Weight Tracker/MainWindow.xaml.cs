@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Effects;
 using Weight_Tracker.Models;
@@ -13,8 +15,8 @@ namespace Weight_Tracker
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DateTime startDate = Date.startDate;
-        private DateTime endDate = Date.endDate;
+        private DateTime startDate = Date.DefaultStartDate;
+        private DateTime endDate = Date.DefaultEndDate;
 
         public MainWindow()
         {
@@ -41,23 +43,30 @@ namespace Weight_Tracker
         }
 
         private void ThisWeekButtonClick(object sender, RoutedEventArgs e)
-        {            
+        {
+            var clickedButton = (ToggleButton)sender;
+            DeactivateOtherButtons(clickedButton);
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(Date.WeekAgo, Date.Today);
         }
-
         private void ThisMonthButtonClick(object sender, RoutedEventArgs e)
-        {            
+        {
+            var clickedButton = (ToggleButton)sender;
+            DeactivateOtherButtons(clickedButton);
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(startDate, endDate);
         }
 
         private void ThisYearButtonClick(object sender, RoutedEventArgs e)
         {
+            var clickedButton = (ToggleButton)sender;
+            DeactivateOtherButtons(clickedButton);
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
                 Date.YearAgo, Date.Today);
         }
 
         private void CustomButtonClick(object sender, RoutedEventArgs e)
         {
+            var clickedButton = (ToggleButton)sender;
+            DeactivateOtherButtons(clickedButton);
             CustomDateSelection dateSelectionWindow = new CustomDateSelection();
             Main_Window.Effect = new BlurEffect();
             dateSelectionWindow.DataChanged += OnCustomDate_DataChanged;
@@ -87,6 +96,17 @@ namespace Weight_Tracker
         {
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
                 start, end);
+        }
+
+        private void DeactivateOtherButtons(ToggleButton clickedButton)
+        {
+            var buttons = new[] { weekButton, yearButton, monthButton, customButton };
+
+            foreach (var button in buttons)
+            {
+                if (button != clickedButton)
+                    button.IsChecked = false;
+            }
         }
     }
 }

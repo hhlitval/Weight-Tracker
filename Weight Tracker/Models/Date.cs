@@ -10,11 +10,12 @@ namespace Weight_Tracker.Models
     {
         public static readonly DateTime Today = DateTime.Today;
         public static readonly DateTime Yesterday = Today.AddDays(-1);
+        public static readonly DateTime DayBeforeYesterday = Today.AddDays(-2);
         public static readonly DateTime WeekAgo = Today.AddDays(-7);
         public static readonly DateTime MonthAgo = Today.AddDays(-30);
         public static readonly DateTime YearAgo = Today.AddDays(-365);
 
-        public static readonly DateTime startDate = Today.AddDays(-Today.Day);
-        public static readonly DateTime endDate = Today;
+        public static readonly DateTime DefaultStartDate = Today.AddDays(-Today.Day);
+        public static readonly DateTime DefaultEndDate = Today;        
     }
 }

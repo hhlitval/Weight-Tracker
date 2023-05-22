@@ -12,7 +12,7 @@ namespace Weight_Tracker.ViewModels
     {
         private readonly DateTime _today = Date.Today;
         private readonly DateTime _monthAgo = Date.MonthAgo;
-        public float BmiValue { get; set; }       
+        public double BmiValue { get; set; }       
 
         public BmiViewModel()
         {

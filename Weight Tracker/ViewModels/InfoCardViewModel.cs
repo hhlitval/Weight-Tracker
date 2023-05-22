@@ -13,23 +13,26 @@ namespace Weight_Tracker.ViewModels
     {        
         private readonly DateTime _today = Date.Today;
         private readonly DateTime _yesterday = Date.Yesterday;
+        private readonly DateTime _dayBeforeYesterday = Date.DayBeforeYesterday;
 
-        public float TodayWeight { get; set; }
-        public float TodayDifference { get; set; }
+        public double TodayWeight { get; set; }
+        public double TodayDifference { get; set; }
         public bool IsPositiveToday { get; set; }
-        public float YesterdayWeight { get; set; }
-        public float YesterdayDifference { get; set; }
+        public double YesterdayWeight { get; set; }
+        public double YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
         public double MonthAverageWeight { get; set; }
 
         public InfoCardViewModel()
         {
-            IEnumerable<DailyWeight> weight = new LoadDataFromDB(_yesterday, _today).WeightStatistics;
+            double dayBeforeYesterdayWeight = default;
+            IEnumerable<DailyWeight> weight = new LoadDataFromDB(_dayBeforeYesterday, _today).WeightStatistics;
             
             TodayWeight = (from v in weight where v.Date == _today select v.Weight).FirstOrDefault();
             YesterdayWeight = (from v in weight where v.Date == _yesterday select v.Weight).FirstOrDefault();
+            dayBeforeYesterdayWeight = (from v in weight where v.Date == _dayBeforeYesterday select v.Weight).FirstOrDefault();
             IsPositiveToday = (TodayDifference = TodayWeight - YesterdayWeight) >= 0 ? false :  true;
-            IsPositiveYesterday = (YesterdayDifference = YesterdayWeight - 75) >= 0 ? false : true;
+            IsPositiveYesterday = (YesterdayDifference = YesterdayWeight - dayBeforeYesterdayWeight) >= 0 ? false : true;
         }        
     }
 }

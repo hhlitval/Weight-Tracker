@@ -11,7 +11,7 @@ namespace Weight_Tracker.ViewModels
 {    
     public class DailyStatisticsViewModel : BaseViewModel
     {        
-        public ChartValues<float>? WeightValues { get; set; }
+        public ChartValues<double>? WeightValues { get; set; }
         public string[]? Days { get; set; }
         public Func<double, string>? LineFormatter { get; private set; }       
 
@@ -19,7 +19,7 @@ namespace Weight_Tracker.ViewModels
         {
             IEnumerable<DailyWeight> weight = new LoadDataFromDB(startDate, endDate).WeightStatistics;
 
-            WeightValues = new ChartValues<float>(weight.Select(w => w.Weight));
+            WeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
             Days = weight.Select(c => (c.Date).ToString("dd.MM.yy")).ToArray();
             LineFormatter = value => value.ToString("F1");            
         }        
