@@ -25,7 +25,7 @@ namespace Weight_Tracker.ViewModels
             IEnumerable<DailyWeight> weight = new LoadAverageDataFromDB(_yearAgo, _today).WeightStatistics;
 
             MonthlyWeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
-            MonthAndYear = weight.Select(c => (c.Date).ToString("MMM yyyy")).ToArray();
+            MonthAndYear = weight.Select(c => (c.Date).ToString("MMM yyyy", CultureInfo.CreateSpecificCulture("en-US"))).ToArray();
             BarFormatter = value => value.ToString("F1");
             MonthAverage = weight.Select(w => w.Weight).Last();
             MonthDifference = MonthAverage - (weight.ElementAt(weight.Count() - 2).Weight);

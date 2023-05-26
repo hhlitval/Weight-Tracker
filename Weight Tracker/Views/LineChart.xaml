@@ -11,12 +11,15 @@
         <Style TargetType="lvc:LineSeries"> 
             <Setter Property="StrokeThickness" Value="2"/>
             <Setter Property="PointGeometrySize" Value="0"/>
-            <Setter Property="Stroke" Value="#2889fc"/>
+            <Setter Property="Stroke" Value="#79beee"/>
             <Setter Property="Fill">
                 <Setter.Value>
                     <LinearGradientBrush>
-                        <GradientStop Color="#8a81fc" Offset="0.5"/>
-                        <GradientStop Color="#435394" Offset="1.2"/>
+                        <GradientStop Color="#71a9f7" Offset="0.5"/>
+                        <GradientStop Color="#c6d8ff" Offset="1.2"/>
+                        <!--<GradientStop Color="#3d518c" Offset="0.5"/>
+                        <GradientStop Color="#7692ff" Offset="1.2"/>-->
+
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>

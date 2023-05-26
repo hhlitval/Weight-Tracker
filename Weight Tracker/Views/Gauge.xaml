@@ -15,9 +15,9 @@
                           TicksStep="5" Wedge="300" TicksForeground="#fcfafa" Foreground="Transparent" FontWeight="SemiBold"
                           FontSize="10" SectionsInnerRadius="0.76" NeedleFill="#fcfafa" TicksStrokeThickness="1">            
             <lvc:AngularGauge.Sections>
-                <lvc:AngularSection FromValue="50" ToValue="72.3" Fill="#FF85F196" />
-                <lvc:AngularSection FromValue="72.3" ToValue="87" Fill="#FFFFC972"/>
-                <lvc:AngularSection FromValue="87" ToValue="100" Fill="#FFFB6A6A"/>
+                <lvc:AngularSection FromValue="50" ToValue="72.3" Fill="#20bf55" />
+                <lvc:AngularSection FromValue="72.3" ToValue="87" Fill="#fed766"/>
+                <lvc:AngularSection FromValue="87" ToValue="100" Fill="#fe4a49"/>
             </lvc:AngularGauge.Sections>
         </lvc:AngularGauge>
     </Grid>

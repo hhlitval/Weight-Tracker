@@ -86,7 +86,6 @@
             <Grid Grid.Column="1" Grid.Row="3">
                 <uc:InfoCard Margin="0 10 10 10" Title="Today" Grid.Column="1" Grid.Row="1"
                              Number="{Binding TodayWeight, StringFormat=F1}" 
-                         
                              IsPositive="{Binding IsPositiveToday}" 
                              Difference="{Binding TodayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"
                              DataContext="{Binding InfoCardViewModel}"/>
@@ -110,7 +109,8 @@
             </Grid>
 
             <!-- BMI Index -->
-            <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" DataContext="{Binding BmiViewModel}"/>
+            <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" 
+                                 DataContext="{Binding BmiViewModel}"/>
 
 
             <!-- Month Average Bar Chart -->   
