@@ -19,7 +19,6 @@
                         <GradientStop Color="#c6d8ff" Offset="1.2"/>
                         <!--<GradientStop Color="#3d518c" Offset="0.5"/>
                         <GradientStop Color="#7692ff" Offset="1.2"/>-->
-
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -30,7 +29,7 @@
         <lvc:CartesianChart Grid.Row="1" Margin="5 50 0 10" LegendLocation="None">                       
 
             <lvc:CartesianChart.DataTooltip>
-                <lvc:DefaultTooltip Background="#101a28" Foreground="#ffffff" BulletSize="10" Opacity="0.7">
+                <lvc:DefaultTooltip Background="#24336a" Foreground="#d5e2ff" BulletSize="10">
                     <lvc:DefaultTooltip.Content>
                         <StackPanel>
                             <TextBlock Text="{Binding WeightValues, StringFormat=F1}" FontWeight="Bold" />
@@ -41,7 +40,7 @@
             </lvc:CartesianChart.DataTooltip>
             
             <lvc:CartesianChart.Series>
-                <lvc:LineSeries Title="Weight = " Values="{Binding WeightValues}"/>
+                <lvc:LineSeries Title="Weight = " Values="{Binding WeightValues}" />
             </lvc:CartesianChart.Series>
             
             <lvc:CartesianChart.AxisX>
@@ -53,9 +52,9 @@
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="72" MaxValue="78" LabelFormatter="{Binding YFormatter}">
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="{Binding MinValue}" MaxValue="{Binding MaxValue}" LabelFormatter="{Binding YFormatter}">
                     <lvc:Axis.Separator>
-                        <lvc:Separator StrokeThickness="1" Stroke="#2c3a54" />
+                        <lvc:Separator StrokeThickness="1" Stroke="#2c3a54" Step="1" />
                     </lvc:Axis.Separator>
                 </lvc:Axis>
             </lvc:CartesianChart.AxisY>            

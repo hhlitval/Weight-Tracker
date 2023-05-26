@@ -11,17 +11,21 @@ namespace Weight_Tracker.ViewModels
 {    
     public class DailyStatisticsViewModel : BaseViewModel
     {        
-        public ChartValues<double>? WeightValues { get; set; }
+        public ChartValues<decimal>? WeightValues { get; set; }
         public string[]? Days { get; set; }
-        public Func<double, string>? LineFormatter { get; private set; }       
+        public Func<decimal, string>? LineFormatter { get; private set; }
+        public int MinValue { get; set; } 
+        public int MaxValue { get; set; }
 
         public DailyStatisticsViewModel(DateTime startDate, DateTime endDate)
         {
             IEnumerable<DailyWeight> weight = new LoadDataFromDB(startDate, endDate).WeightStatistics;
 
-            WeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
+            WeightValues = new ChartValues<decimal>(weight.Select(w => w.Weight));
             Days = weight.Select(c => (c.Date).ToString("dd.MM.yy")).ToArray();
-            LineFormatter = value => value.ToString("F1");            
+            LineFormatter = value => value.ToString("D0");
+            MinValue = (int)WeightValues.Min() - 1;
+            MaxValue = (int)WeightValues.Max() + 1;
         }        
     }
 }

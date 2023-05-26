@@ -42,25 +42,27 @@ namespace Weight_Tracker
             Application.Current.Shutdown();
         }
 
-        private void ThisWeekButtonClick(object sender, RoutedEventArgs e)
+        private void WeekButtonClick(object sender, RoutedEventArgs e)
         {
             var clickedButton = (ToggleButton)sender;
             DeactivateOtherButtons(clickedButton);
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(Date.WeekAgo, Date.Today);
         }
-        private void ThisMonthButtonClick(object sender, RoutedEventArgs e)
+
+        private void MonthButtonClick(object sender, RoutedEventArgs e)
         {
             var clickedButton = (ToggleButton)sender;
             DeactivateOtherButtons(clickedButton);
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(startDate, endDate);
         }
 
-        private void ThisYearButtonClick(object sender, RoutedEventArgs e)
+        private void YearButtonClick(object sender, RoutedEventArgs e)
         {
             var clickedButton = (ToggleButton)sender;
-            DeactivateOtherButtons(clickedButton);
+            DeactivateOtherButtons(clickedButton);           
+            
             dailyStatisticsLineChart.DataContext = new DailyStatisticsViewModel(
-                Date.YearAgo, Date.Today);
+                Date.YearAgo, Date.Today); ;
         }
 
         private void CustomButtonClick(object sender, RoutedEventArgs e)

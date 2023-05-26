@@ -15,16 +15,16 @@ namespace Weight_Tracker.ViewModels
         private readonly DateTime _yesterday = Date.Yesterday;
         private readonly DateTime _dayBeforeYesterday = Date.DayBeforeYesterday;
 
-        public double TodayWeight { get; set; }
-        public double TodayDifference { get; set; }
+        public decimal TodayWeight { get; set; }
+        public decimal TodayDifference { get; set; }
         public bool IsPositiveToday { get; set; }
-        public double YesterdayWeight { get; set; }
-        public double YesterdayDifference { get; set; }
+        public decimal YesterdayWeight { get; set; }
+        public decimal YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
 
         public InfoCardViewModel()
         {
-            double dayBeforeYesterdayWeight = default;
+            decimal dayBeforeYesterdayWeight = default;
             IEnumerable<DailyWeight> weight = new LoadDataFromDB(_dayBeforeYesterday, _today).WeightStatistics;
             
             TodayWeight = (from v in weight where v.Date == _today select v.Weight).FirstOrDefault();

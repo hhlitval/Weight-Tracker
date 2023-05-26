@@ -27,18 +27,19 @@ namespace Weight_Tracker.DatabaseServices
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get all data from database
-                    command.CommandText = @"SELECT FORMAT (Day, 'MMM yyyy') AS Dateformat, 
-		                                    AVG(Weight) FROM TotalWeight 
-		                                    WHERE Day between '2022-01-01' AND '2023-05-21' 
-		                                    Group by FORMAT (Day, 'MMM yyyy')
-		                                    ORDER by Dateformat DESC";
+                    command.CommandText = @"SELECT FORMAT(Date, 'MMM yyyy') AS month_year,
+                                            CAST(ROUND(AVG(Weight),1)AS DECIMAL(3,1)) AS average_value
+                                            FROM TotalWeight
+                                            WHERE Date between @FROMDATE and @TODATE
+                                            GROUP BY FORMAT(Date, 'MMM yyyy')
+                                            ORDER BY MIN(Date)";
 
-                    //command.Parameters.Add("@FROMDATE", System.Data.SqlDbType.DateTime2).Value = startDate;
-                    //command.Parameters.Add("@TODATE", System.Data.SqlDbType.DateTime2).Value = endDate;
+                    command.Parameters.Add("@FROMDATE", System.Data.SqlDbType.DateTime2).Value = startDate;
+                    command.Parameters.Add("@TODATE", System.Data.SqlDbType.DateTime2).Value = endDate;
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        dbWeightList.Add(new DailyWeight() { Date = DateTime.ParseExact((string)reader[0], "MMM yyyy", CultureInfo.InvariantCulture), Weight = (double)reader[1]}); 
+                        dbWeightList.Add(new DailyWeight() { Date = DateTime.ParseExact((string)reader[0], "MMM yyyy", CultureInfo.InvariantCulture), Weight = (decimal)reader[1]}); 
                     }
                     reader.Close();
 

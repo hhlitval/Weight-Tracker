@@ -9,15 +9,9 @@
         <Style TargetType="lvc:ColumnSeries">
             <Setter Property="Fill">
             <Setter.Value>
-                <LinearGradientBrush>
-                        <!--<GradientStop Color="#75c9c8" Offset="0.4"/>
-                        <GradientStop Color="#80a1d4" Offset="1"/>-->
+                <LinearGradientBrush>                        
                         <GradientStop Color="#2dc7ff" Offset="0.4"/>
-                        <GradientStop Color="#00abe7" Offset="1"/>
-                        <!--<GradientStop Color="#ffa987" Offset="0.4"/>
-                        <GradientStop Color="#e54b4b" Offset="1"/>-->
-                        <!--<GradientStop Color="#c8b8db" Offset="0.4"/>
-                        <GradientStop Color="#70587c" Offset="1"/>-->
+                        <GradientStop Color="#90e0ef" Offset="1"/>                        
                     </LinearGradientBrush>
             </Setter.Value>
             </Setter>
@@ -25,7 +19,7 @@
     </UserControl.Resources>
     
     <Grid>
-        <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0" >
+        <lvc:CartesianChart LegendLocation="None" Margin="0 40 0 0"> 
             <lvc:CartesianChart.DataTooltip>
                 <lvc:DefaultTooltip Background="#24336a" Foreground="#d5e2ff" />
             </lvc:CartesianChart.DataTooltip>

@@ -63,11 +63,11 @@
             <!-- Top Right Menu Buttons -->
             <StackPanel Grid.Row="0" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Right" 
                         VerticalAlignment="Bottom" Margin="0 0 20 10">
-                <ToggleButton x:Name="weekButton" Content="Week" Style="{StaticResource topMenuButton}" Click="ThisWeekButtonClick"/>
-                <ToggleButton x:Name="monthButton" Content="Month" Style="{StaticResource topMenuButton}" Click="ThisMonthButtonClick" 
+                <ToggleButton x:Name="weekButton" Content="Week" Style="{StaticResource topMenuButton}" Click="WeekButtonClick"/>
+                <ToggleButton x:Name="monthButton" Content="Month" Style="{StaticResource topMenuButton}" Click="MonthButtonClick" 
                         IsChecked="True"/>
                 <!--Background="#3075c7" Foreground="#fcfafa"-->
-                <ToggleButton x:Name="yearButton" Content="Year" Style="{StaticResource topMenuButton}" Click="ThisYearButtonClick"
+                <ToggleButton x:Name="yearButton" Content="Year" Style="{StaticResource topMenuButton}" Click="YearButtonClick"
                         IsEnabled="True"/>
                 <ToggleButton x:Name="customButton" Content="Custom" Style="{StaticResource topMenuButton}" Click="CustomButtonClick"/>                
 

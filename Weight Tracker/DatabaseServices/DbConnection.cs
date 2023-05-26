@@ -9,7 +9,7 @@ namespace Weight_Tracker.DatabaseServices
 
         public DbConnection()
         {
-            connectionString = "Server=(local); DataBase=Weight; Integrated Security=true";
+            connectionString = "Server=(local); DataBase=WeightData; Integrated Security=true";
         }
 
         protected SqlConnection GetConnection()

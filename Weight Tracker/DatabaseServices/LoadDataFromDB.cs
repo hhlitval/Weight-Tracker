@@ -26,17 +26,17 @@ namespace Weight_Tracker.DatabaseServices
                     SqlDataReader reader;
                     command.Connection = connection;
                     //Get all data from database
-                    command.CommandText = @"SELECT Day, Weight
+                    command.CommandText = @"SELECT Date, Weight
                                             FROM TotalWeight 
-                                                WHERE Day between @FROMDATE and @TODATE 
-                                                ORDER BY Day";
+                                                WHERE Date between @FROMDATE and @TODATE 
+                                                ORDER BY Date";
 
                     command.Parameters.Add("@FROMDATE", System.Data.SqlDbType.DateTime2).Value = startDate;
                     command.Parameters.Add("@TODATE", System.Data.SqlDbType.DateTime2).Value = endDate;
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        dbWeightList.Add(new DailyWeight() { Date = (DateTime)reader["Day"], Weight = (float)reader["Weight"]});
+                        dbWeightList.Add(new DailyWeight() { Date = (DateTime)reader["Date"], Weight = (decimal)reader["Weight"]});
                     }
                     reader.Close();
 

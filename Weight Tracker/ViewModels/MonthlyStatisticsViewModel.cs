@@ -13,18 +13,18 @@ namespace Weight_Tracker.ViewModels
         private readonly DateTime _yearAgo = Date.YearAgo;
         private readonly DateTime _today = Date.Today;        
         
-        public ChartValues<double>? MonthlyWeightValues { get; set; }
+        public ChartValues<decimal>? MonthlyWeightValues { get; set; }
         public string[]? MonthAndYear { get; set; }
-        public Func<double, string>? BarFormatter { get; private set; }
-        public double MonthAverage { get; set; }
-        public double MonthDifference { get; set; }
+        public Func<decimal, string>? BarFormatter { get; private set; }
+        public decimal MonthAverage { get; set; }
+        public decimal MonthDifference { get; set; }
         public bool IsPositiveMonthDifference { get; set; }
 
         public MonthlyStatisticsViewModel()
         {
             IEnumerable<DailyWeight> weight = new LoadAverageDataFromDB(_yearAgo, _today).WeightStatistics;
 
-            MonthlyWeightValues = new ChartValues<double>(weight.Select(w => w.Weight));
+            MonthlyWeightValues = new ChartValues<decimal>(weight.Select(w => w.Weight));
             MonthAndYear = weight.Select(c => (c.Date).ToString("MMM yyyy", CultureInfo.CreateSpecificCulture("en-US"))).ToArray();
             BarFormatter = value => value.ToString("F1");
             MonthAverage = weight.Select(w => w.Weight).Last();
