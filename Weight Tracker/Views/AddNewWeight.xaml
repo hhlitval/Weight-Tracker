@@ -34,7 +34,7 @@
                 <TextBlock Text=" kg" FontSize="30" FontWeight="SemiBold" Foreground="#fcfafa" VerticalAlignment="Center"/>
             </StackPanel>
 
-            <Slider Style="{DynamicResource SliderStyle1}" x:Name="slider" Grid.Row="3" Margin="20" Minimum="70" Maximum="85" VerticalAlignment="Center"
+            <Slider Style="{DynamicResource SliderStyle1}" x:Name="slider" Grid.Row="3" Margin="20 5 20 5" Minimum="70" Maximum="85" VerticalAlignment="Center"
                     TickFrequency="1" Value="75"/>
 
 

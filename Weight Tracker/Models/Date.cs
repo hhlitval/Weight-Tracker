@@ -15,7 +15,7 @@ namespace Weight_Tracker.Models
         public static readonly DateTime MonthAgo = Today.AddDays(-30);
         public static readonly DateTime YearAgo = Today.AddDays(-365);
 
-        public static readonly DateTime DefaultStartDate = Today.AddDays(-Today.Day);
+        public static readonly DateTime DefaultStartDate = MonthAgo;
         public static readonly DateTime DefaultEndDate = Today;        
     }
 }

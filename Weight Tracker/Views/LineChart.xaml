@@ -9,7 +9,7 @@
     
     <UserControl.Resources>        
         <Style TargetType="lvc:LineSeries"> 
-            <Setter Property="StrokeThickness" Value="2"/>
+            <Setter Property="StrokeThickness" Value="1"/>
             <Setter Property="PointGeometrySize" Value="0"/>
             <Setter Property="Stroke" Value="#79beee"/>
             <Setter Property="Fill">

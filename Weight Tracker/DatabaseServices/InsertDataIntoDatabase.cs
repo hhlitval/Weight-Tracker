@@ -15,7 +15,7 @@ namespace Weight_Tracker.DatabaseServices
             {
                 connection.Open();
 
-                string insertQuery = "INSERT INTO TotalWeight (Day, Weight) VALUES (@Date, @Value)";
+                string insertQuery = "INSERT INTO TotalWeight (Date, Weight) VALUES (@Date, @Value)";
 
                 using (SqlCommand command = new SqlCommand(insertQuery, connection))
                 {

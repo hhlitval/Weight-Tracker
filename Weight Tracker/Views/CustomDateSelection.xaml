@@ -36,7 +36,8 @@
             <Border Grid.Column="0" Grid.Row="2" BorderThickness="0" Background="#1e2e44" CornerRadius="7" Margin="20 10 20 10">
                 <Calendar x:Name="calendar1" xml:lang="en-US" Style="{DynamicResource CalendarStyleNew}" CalendarButtonStyle="{DynamicResource CalendarCalendarButtonStyleNew}" 
                           CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyleNew}" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyleNew}"
-                          SelectionMode="SingleDate" IsTodayHighlighted="False" GotMouseCapture="calendar_GotMouseCapture"/>
+                          SelectionMode="SingleDate" IsTodayHighlighted="True" GotMouseCapture="calendar_GotMouseCapture"
+                          DisplayDateStart="05.08.2020" DisplayDate="May 2020"/>
             </Border>
 
             <Separator Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="12" Background="#fcfafa"/>
