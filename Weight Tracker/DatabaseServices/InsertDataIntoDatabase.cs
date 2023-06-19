@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Weight_Tracker.DatabaseServices
 {
+    /// <summary>
+    /// Insert weight data into the database
+    /// </summary>
     public class InsertDataIntoDatabase : DbConnection
     {
         public void InsertData(DateTime date, string value)

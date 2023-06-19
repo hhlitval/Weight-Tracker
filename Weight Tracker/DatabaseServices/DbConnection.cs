@@ -3,6 +3,9 @@
 
 namespace Weight_Tracker.DatabaseServices
 {
+    /// <summary>
+    /// Database connection to MS SQL Server
+    /// </summary>
     public class DbConnection
     {
         private readonly string connectionString;
