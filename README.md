@@ -40,7 +40,7 @@ The Weight-Tracker application offers the following features:
 - MahApps icon packs (https://github.com/MahApps/MahApps.Metro.IconPacks)
 
 ## Preview
-
+![Weight-Tracker Application Preview](w_tracker.gif)
 
 
 ## Authors
