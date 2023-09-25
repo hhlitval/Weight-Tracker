@@ -4,7 +4,7 @@
 
 ## Description
 
-The Weight-Tracker application is a C# and WPF-based desktop application designed to monitor and manage body weight. It offers visual representations of weight trends, helping users track their progress over time.
+Weight-Tracker application is a C# and WPF-based desktop application designed to monitor and manage body weight. It offers visual representations of weight trends, helping users track their progress over time.
 
 ## Features
 
