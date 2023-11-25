@@ -88,7 +88,7 @@
                              Number="{Binding TodayWeight, StringFormat=F1}" 
                              IsPositive="{Binding IsPositiveToday}" 
                              Difference="{Binding TodayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"
-                             DataContext="{Binding InfoCardViewModel}"/>
+                             DataContext="{Binding InfoCardsViewModel}"/>
             </Grid>
             
             <Grid Grid.Column="1" Grid.Row="4">
@@ -96,7 +96,7 @@
                              Number="{Binding YesterdayWeight, StringFormat=F1}"
                              IsPositive="{Binding IsPositiveYesterday}" 
                              Difference="{Binding YesterdayDifference, StringFormat={}{0:+ 0.0;- 0.0}}"
-                             DataContext="{Binding InfoCardViewModel}"/>
+                             DataContext="{Binding InfoCardsViewModel}"/>
             </Grid>
 
             <Grid Grid.Column="1" Grid.Row="5">

@@ -25,7 +25,7 @@ namespace Weight_Tracker
             DataContext = new DashboardViewModel(
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
-                new InfoCardViewModel(),
+                new InfoCardsViewModel(),
                 new BmiViewModel());
         }
 
@@ -90,7 +90,7 @@ namespace Weight_Tracker
             DataContext = new DashboardViewModel(
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
-                new InfoCardViewModel(),
+                new InfoCardsViewModel(),
                 new BmiViewModel());
         }
 

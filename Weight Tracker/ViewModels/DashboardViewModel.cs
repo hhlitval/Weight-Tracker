@@ -10,14 +10,14 @@ namespace Weight_Tracker.ViewModels
     {
         public DailyStatisticsViewModel DailyStatisticsViewModel { get; }
         public MonthlyStatisticsViewModel MonthlyStatisticsViewModel { get; }
-        public InfoCardViewModel InfoCardViewModel { get; }
+        public InfoCardsViewModel InfoCardsViewModel { get; }
         public BmiViewModel BmiViewModel { get; }
 
-        public DashboardViewModel(DailyStatisticsViewModel dailyStatisticsViewModel, MonthlyStatisticsViewModel monthlyStatisticsViewModel, InfoCardViewModel infoCardViewModel, BmiViewModel bmiViewModel)
+        public DashboardViewModel(DailyStatisticsViewModel dailyStatisticsViewModel, MonthlyStatisticsViewModel monthlyStatisticsViewModel, InfoCardsViewModel infoCardViewModel, BmiViewModel bmiViewModel)
         {
             DailyStatisticsViewModel = dailyStatisticsViewModel;
             MonthlyStatisticsViewModel = monthlyStatisticsViewModel;
-            InfoCardViewModel = infoCardViewModel;
+            InfoCardsViewModel = infoCardViewModel;
             BmiViewModel = bmiViewModel;
         }
     }
