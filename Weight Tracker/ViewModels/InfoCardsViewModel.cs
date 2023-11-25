@@ -9,7 +9,7 @@ using Weight_Tracker.Models;
 
 namespace Weight_Tracker.ViewModels
 {
-    public class InfoCardViewModel : BaseViewModel
+    public class InfoCardsViewModel : BaseViewModel
     {        
         private readonly DateTime _today = Date.Today;
         private readonly DateTime _yesterday = Date.Yesterday;
@@ -22,7 +22,7 @@ namespace Weight_Tracker.ViewModels
         public decimal YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
 
-        public InfoCardViewModel()
+        public InfoCardsViewModel()
         {
             decimal dayBeforeYesterdayWeight = default;
             IEnumerable<DailyWeight> weight = new LoadDataFromDB(_dayBeforeYesterday, _today).WeightStatistics;
