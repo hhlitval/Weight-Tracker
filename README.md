@@ -35,7 +35,7 @@ The Weight-Tracker application offers the following features:
 
 - C# programming language
 - Windows Presentation Foundation (WPF) framework
-- MS SQL Database
+- MS SQL Server Database
 - LiveCharts library (https://v0.lvcharts.com/)
 - MahApps icon packs (https://github.com/MahApps/MahApps.Metro.IconPacks)
 
