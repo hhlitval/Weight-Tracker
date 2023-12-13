@@ -1,17 +1,14 @@
 ﻿<UserControl x:Class="Weight_Tracker.Views.Gauge"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-             xmlns:local="clr-namespace:Weight_Tracker.Views">
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <lvc:AngularGauge Grid.Row="1" Value="{Binding BmiValue}" FromValue="50" ToValue="100" LabelsStep="10" 
+        <lvc:AngularGauge Grid.Row="1" Value="{Binding CurrentBmiValue}" FromValue="50" ToValue="100" LabelsStep="10" 
                           TicksStep="5" Wedge="300" TicksForeground="#fcfafa" Foreground="Transparent" FontWeight="SemiBold"
                           FontSize="10" SectionsInnerRadius="0.76" NeedleFill="#fcfafa" TicksStrokeThickness="1">            
             <lvc:AngularGauge.Sections>
