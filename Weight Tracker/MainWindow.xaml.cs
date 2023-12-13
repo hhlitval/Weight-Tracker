@@ -26,7 +26,7 @@ namespace Weight_Tracker
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
                 new InfoCardsViewModel(),
-                new BmiViewModel());
+                new CurrentBmiViewModel());
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -91,7 +91,7 @@ namespace Weight_Tracker
                 new DailyStatisticsViewModel(startDate, endDate),
                 new MonthlyStatisticsViewModel(),
                 new InfoCardsViewModel(),
-                new BmiViewModel());
+                new CurrentBmiViewModel());
         }
 
         private void OnCustomDate_DataChanged(DateTime start, DateTime end)

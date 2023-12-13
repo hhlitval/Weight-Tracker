@@ -110,7 +110,7 @@
 
             <!-- BMI Index -->
             <bmicard:BmiInfoCard x:Name="bmiCard" Grid.Row="3" Grid.Column="2" Grid.RowSpan="3" 
-                                 DataContext="{Binding BmiViewModel}"/>
+                                 DataContext="{Binding CurrentBmiViewModel}"/>
 
 
             <!-- Month Average Bar Chart -->   
