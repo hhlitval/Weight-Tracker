@@ -19,6 +19,8 @@ namespace Weight_Tracker.ViewModels
         public decimal MonthAverage { get; set; }
         public decimal MonthDifference { get; set; }
         public bool IsPositiveMonthDifference { get; set; }
+        public int MinValue { get; set; }
+        public int MaxValue { get; set; }
 
         public MonthlyStatisticsViewModel()
         {
@@ -30,6 +32,8 @@ namespace Weight_Tracker.ViewModels
             MonthAverage = weight.Select(w => w.Weight).Last();
             MonthDifference = MonthAverage - (weight.ElementAt(weight.Count() - 2).Weight);
             IsPositiveMonthDifference = MonthDifference  >= 0 ? false : true;
+            MinValue = (int)MonthlyWeightValues.Min() - 2;
+            MaxValue = (int)MonthlyWeightValues.Max() + 2;
         }
     }
 }

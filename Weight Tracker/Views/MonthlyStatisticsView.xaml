@@ -37,7 +37,7 @@
             </lvc:CartesianChart.AxisX>
 
             <lvc:CartesianChart.AxisY>
-                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True" MinValue="70" MaxValue="80"
+                <lvc:Axis Foreground="#bcc0c6" ShowLabels="True"  MinValue="{Binding MinValue}" MaxValue="{Binding MaxValue}"
                           LabelFormatter="{Binding BarFormatter}">
                     <lvc:Axis.Separator>
                         <lvc:Separator StrokeThickness="0"/>
