@@ -18,6 +18,7 @@ namespace Weight_Tracker.ViewModels
         public decimal TodayWeight { get; set; }
         public decimal TodayDifference { get; set; }
         public bool IsPositiveToday { get; set; }
+        public bool IsNeutral { get; set; }
         public decimal YesterdayWeight { get; set; }
         public decimal YesterdayDifference { get; set; }
         public bool IsPositiveYesterday { get; set; }
@@ -30,8 +31,10 @@ namespace Weight_Tracker.ViewModels
             TodayWeight = (from v in weight where v.Date == _today select v.Weight).FirstOrDefault();
             YesterdayWeight = (from v in weight where v.Date == _yesterday select v.Weight).FirstOrDefault();
             dayBeforeYesterdayWeight = (from v in weight where v.Date == _dayBeforeYesterday select v.Weight).FirstOrDefault();
-            IsPositiveToday = (TodayDifference = TodayWeight - YesterdayWeight) >= 0 ? false :  true;
-            IsPositiveYesterday = (YesterdayDifference = YesterdayWeight - dayBeforeYesterdayWeight) >= 0 ? false : true;
-        }        
+            IsPositiveToday = (TodayDifference = TodayWeight - YesterdayWeight) > 0 ? false : true;
+            IsPositiveYesterday = (YesterdayDifference = YesterdayWeight - dayBeforeYesterdayWeight) > 0 ? false : true;
+        }     
+        
+        
     }
 }

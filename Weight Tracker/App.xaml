@@ -728,7 +728,7 @@
             <Style.Triggers>
                 <DataTrigger Binding="{Binding ElementName=infoCard, Path=IsPositive}" Value="False">
                     <Setter Property="Foreground" Value="#d62839"/>
-                </DataTrigger>
+                </DataTrigger>                
 
                 <DataTrigger Binding="{Binding ElementName=infoCard, Path=IsPositive}" Value="True">
                     <Setter Property="Foreground" Value="#7afaae"/>

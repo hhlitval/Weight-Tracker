@@ -46,8 +46,10 @@ namespace Weight_Tracker.Views
             set { SetValue(IsPositiveProperty, value); }
         }
 
+
         public static readonly DependencyProperty IsPositiveProperty =
             DependencyProperty.Register("IsPositive", typeof(bool), typeof(InfoCard));
+        
 
         public string Difference
         {

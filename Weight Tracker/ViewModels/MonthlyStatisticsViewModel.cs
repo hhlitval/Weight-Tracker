@@ -31,7 +31,7 @@ namespace Weight_Tracker.ViewModels
             BarFormatter = value => value.ToString("F1");
             MonthAverage = weight.Select(w => w.Weight).Last();
             MonthDifference = MonthAverage - (weight.ElementAt(weight.Count() - 2).Weight);
-            IsPositiveMonthDifference = MonthDifference  >= 0 ? false : true;
+            IsPositiveMonthDifference = MonthDifference  > 0 ? false : true;
             MinValue = (int)MonthlyWeightValues.Min() - 2;
             MaxValue = (int)MonthlyWeightValues.Max() + 2;
         }
